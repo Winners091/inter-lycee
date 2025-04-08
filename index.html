@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projet Inter-Lycées pour la Solidarité et la Diversité - Initiative commune pour encourager l'engagement des élèves">
+    <title>Projet Inter-Lycées | Solidarité et Diversité</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bbd;
+            --primary-light: #6b8ad4;
+            --secondary-color: #2ecc71;
+            --accent-color: #f39c12;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* TYPOGRAPHIE */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+        }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1000/500') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        header .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        /* HERO SECTION */
+        .hero {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--light-color));
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        }
+        
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .badge {
+            background-color: rgba(74, 107, 189, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .badge:hover {
+            background-color: rgba(74, 107, 189, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .badge i {
+            font-size: 1rem;
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+            border-radius: 2px;
+            margin: 1rem auto 0;
+        }
+        
+        /* CARDS */
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .action-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            z-index: -1;
+        }
+        
+        .secondary-header::before {
+            background: linear-gradient(135deg, var(--secondary-color), #7eddad);
+        }
+        
+        .accent-header::before {
+            background: linear-gradient(135deg, var(--accent-color), #f8c471);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .action-card:hover .card-icon {
+            transform: rotateY(180deg);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-body h4 {
+            color: var(--primary-color);
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .card-body ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .card-body li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+        
+        /* SPIRIT SECTION */
+        .spirit {
+            background-color: #f1f5fb;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spirit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1000/500') center/cover no-repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .spirit .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .spirit-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .spirit-points {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .spirit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spirit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .spirit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .spirit-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(74, 107, 189, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        
+        .spirit-item:hover .spirit-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* NOTE */
+        .note {
+            background-color: #fff9e6;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 3rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            position: relative;
+        }
+        
+        .note::before {
+            content: '\f05a';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: -2px;
+            top: -15px;
+            background-color: var(--accent-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* NEXT STEPS */
+        .next-steps {
+            text-align: center;
+            background-color: white;
+            position: relative;
+        }
+        
+        .next-steps-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(74, 107, 189, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 107, 189, 0.4);
+        }
+        
+        .timeline {
+            margin: 3rem auto;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-light);
+            opacity: 0.3;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                display: block;
+            }
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            min-width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(74, 107, 189, 0.5);
+        }
+        
+        .timeline-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            flex: 1;
+            transition: var(--transition);
+        }
+        
+        .timeline-item:hover .timeline-content {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .timeline-content h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* ADAPTABILITÉ */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-marker {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-badges {
+                justify-content: center;
+            }
+            
+            .card-header {
+                padding: 1.25rem;
+            }
+            
+            .card-body {
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .note {
+                padding: 1rem;
+                margin: 2rem 0;
+            }
+            
+            .spirit-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .spirit-points {
+                padding: 1.5rem;
+            }
+            
+            .spirit-item {
+                padding: 1.25rem;
+            }
+        }
+        
+        /* AMÉLIORATIONS GRAPHIQUES */
+        .highlight {
+            font-weight: 600;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: rgba(74, 107, 189, 0.2);
+            border-radius: 2px;
+        }
+        
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            z-index: 1;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 58px;
+            transform: rotateY(180deg);
+        }
+
+        .wave-divider .shape-fill {
+            fill: #FFFFFF;
+        }
+        
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .actions-section.fade-in {
+            animation-delay: 0.2s;
+        }
+        
+        .spirit.fade-in {
+            animation-delay: 0.4s;
+        }
+        
+        .next-steps.fade-in {
+            animation-delay: 0.6s;
+        }
+        
+        /* NAVIGATION */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            color: var(--primary-light);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style-type: none;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+        
+        .mobile-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-backdrop.active {
+            opacity: 1;
+            display: block;
+        }
+        
+        /* Bouton retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 2rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 1001;
+                justify-content: flex-start;
+                gap: 1.5rem;
+                overflow-y: auto;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--text-color);
+                cursor: pointer;
+                transition: var(--transition);
+            }
+            
+            .close-menu:hover {
+                color: var(--primary-color);
+                transform: rotate(90deg);
+            }
+            
+            .card-header {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">Projet Inter-Lycées</a>
+            <button class="mobile-toggle" aria-label="Menu" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <button class="close-menu" aria-label="Fermer" id="close-menu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <li><a href="#actions" class="nav-link">Actions</a></li>
+                <li><a href="#spirit" class="nav-link">Esprit du projet</a></li>
+                <li><a href="#next-steps" class="nav-link">Prochaines étapes</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="mobile-backdrop" id="mobile-backdrop"></div>
+    
+    <header>
+        <div class="container">
+            <h1>Projet Inter-Lycées 2025-2026</h1>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Ensemble pour la Solidarité et la Diversité</h1>
+            <p>Une initiative commune pour encourager l'engagement des élèves à travers des événements fédérateurs et enrichissants</p>
+            
+            <div class="hero-badges">
+                <div class="badge"><i class="fas fa-handshake"></i> Collaboration</div>
+                <div class="badge"><i class="fas fa-heart"></i> Solidarité</div>
+                <div class="badge"><i class="fas fa-users"></i> Diversité</div>
+                <div class="badge"><i class="fas fa-star"></i> Excellence</div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <section id="actions" class="actions-section fade-in">
+        <div class="container">
+            <h2 class="section-title">Actions Envisagées</h2>
+            <div class="actions">
+                <div class="action-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div>
+                            <h3>Course Relais Caritative</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Un événement sportif solidaire permettant de collecter des fonds pour une cause sociale ou humanitaire.</p>
+                        <p>Les élèves pourront se mobiliser ensemble pour soutenir une cause qui leur tient à cœur tout en pratiquant une activité physique.</p>
+                    </div>
+                </div>
+                
+                <div class="action-card">
+                    <div class="card-header secondary-header">
+                        <div class="card-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div>
+                            <h3>Olympiades</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Un tournoi combinant activités sportives et épreuves culturelles pour créer un moment de convivialité et de coopération entre élèves de différents lycées.</p>
+                        
+                        <h4>Épreuves culturelles</h4>
+                        <ul>
+                            <li>Improvisation théâtrale</li>
+                            <li>Mise en scène d'une courte pièce</li>
+                            <li>Quiz sur des thèmes variés (histoire, géographie, musique, cinéma...)</li>
+                        </ul>
+                        
+                        <h4>Épreuves sportives</h4>
+                        <ul>
+                            <li>Course de relais classique (4x100m)</li>
+                            <li>Course en sac, course avec œuf sur une cuillère</li>
+                            <li>Tournoi multisports</li>
+                            <li>Tir à la corde </li>
+                        </ul>
+                    </div>
+                </div>
+
+                
+                <div class="action-card">
+                    <div class="card-header accent-header">
+                        <div class="card-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div>
+                            <h3>Kermesse Solidaire</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Un événement festif avec stands et animations, visant à favoriser l'échange, la convivialité et la découverte de différentes cultures et initiatives.</p>
+                        <p>Chaque lycée pourra proposer des stands représentatifs de sa culture, ses spécialités ou ses projets solidaires.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="note">
+                <p><strong>À noter :</strong></p>
+                <ul>
+                    <li>Il est possible d'organiser les olympiades sur la journée et la course caritative l'après-midi.</li>
+                    <li>Les olympiades culturelles et sportives peuvent également être combinées dans un format mixte.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="spirit" class="spirit fade-in">
+        <div class="container">
+            <div class="spirit-intro">
+                <h2 class="section-title">Esprit du Projet</h2>
+                <p>Ce projet a pour ambition de <span class="highlight">renforcer les liens entre les établissements</span>, tout en <span class="highlight">encourageant l'implication active des élèves</span> dans des actions collectives porteuses de sens.</p>
+            </div>
+            
+            <div class="spirit-points">
+                <h3>Nos valeurs fondamentales</h3>
+                
+                <div class="spirit-grid">
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>Égalité</h4>
+                        <p>Toutes les écoles seront mises sur un pied d'égalité, sans distinction ni favoritisme.</p>
+                    </div>
+                    
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4>Inclusion</h4>
+                        <p>L'accent sera mis sur l'inclusion et le respect mutuel entre tous les participants.</p>
+                    </div>
+                    
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h4>Dépassement de soi</h4>
+                        <p>Encouragement au dépassement personnel et à l'entraide entre les élèves.</p>
+                    </div>
+                    
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>D'autres actions ou initiatives peuvent être proposées au fil du projet, en fonction des idées et des dynamiques locales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="next-steps" class="next-steps fade-in">
+        <div class="container">
+            <h2 class="section-title">Prochaines Étapes</h2>
+            <div class="next-steps-content">
+                <p>Pour cette première édition, nous comptons proposer cette initiative à cinq autres lycées, y compris le vôtre. L'objectif est de créer une dynamique collective entre établissements, dans un esprit de coopération et de partage.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h4>Réunion initiale</h4>
+                            <p>Organisation d'une réunion d'échange avec les membres des CVL des différents lycées participants.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h4>Co-construction</h4>
+                            <p>Définition précise des actions et établissement d'un calendrier pour l'année scolaire.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h4>Préparation</h4>
+                            <p>Organisation logistique et communication autour du projet au sein de chaque établissement.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>C'est pourquoi nous souhaiterions organiser une réunion d'ici le mois de mai avec des membres des CVL des lycées concernés, afin d'échanger nos idées, aligner nos points de vue et co-construire les bases de ce projet pour l'année scolaire prochaine.</p>
+                
+                
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            
