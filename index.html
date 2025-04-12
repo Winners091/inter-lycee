@@ -2,2125 +2,1057 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="description" content="Recueil d'analyses littéraires">
-    <meta name="theme-color" content="#2c3e50">
-    <title>Recueil d'analyses littéraires</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projet Inter-Lycées pour la Solidarité et la Diversité - Initiative commune pour encourager l'engagement des élèves">
+    <title>Projet Inter-Lycées | Solidarité et Diversité</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset et styles de base */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        :root {
+            --primary-color: #4a6bbd;
+            --primary-light: #6b8ad4;
+            --secondary-color: #2ecc71;
+            --accent-color: #f39c12;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
         
-        :root {
-            /* Couleurs */
-            --primary-color: #cf125a;              /* Rouge bordeaux */
-            --secondary-color: #34495e;            /* Bleu-gris moyen */
-            --accent-color: #8e44ad;               /* Violet royal */
-            --background-color: #f8f5f0;           /* Beige parcheminé */
-            --text-color: #3b75af;                 /* Texte bleu */
-            --card-color: #fff;                    /* Cartes blanches */
-            --light-bg: #f0ece2;                   /* Beige clair */
-            --dark-text: #333;                     /* Texte sombre pour le contraste */
-            --light-text: #fff;                    /* Texte clair */
-            --border-color: #ddd;                  /* Couleur des bordures */
-            
-            /* Typographie */
-            --serif-font: 'Crimson Text', Georgia, serif;
-            --heading-font: 'Spectral', serif;
-            --base-font-size: 16px;
-            --line-height: 1.8;
-            
-            /* Ombres */
-            --shadow: 0 3px 10px rgba(0,0,0,0.08);
-            --hover-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            
-            /* Espacements */
-            --spacing-xs: 0.3125rem;    /* 5px */
-            --spacing-sm: 0.625rem;     /* 10px */
-            --spacing-md: 0.9375rem;    /* 15px */
-            --spacing-lg: 1.25rem;      /* 20px */
-            --spacing-xl: 1.5625rem;    /* 25px */
-            --container-padding: 1.25rem;
-            
-            /* Bordures */
-            --border-radius: 0.5rem;     /* 8px */
-            --border-width: 1px;
-            
-            /* Header */
-            --header-height: 7.5rem;     /* 120px */
-            --header-height-scrolled: 3.75rem; /* 60px */
-            --nav-height: 3.125rem;      /* 50px */
-            
-            /* Transitions */
-            --transition-speed: 0.3s;
-        }
-
-        html {
-            font-size: var(--base-font-size);
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--serif-font);
-            font-size: 1rem;
-            line-height: var(--line-height);
-            background-color: var(--background-color);
-            color: var(--dark-text);
-            letter-spacing: 0.01em;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 70px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8f9fa;
             overflow-x: hidden;
         }
         
-        body.scrolled {
-            padding-top: var(--header-height-scrolled);
-        }
-
-        h1, h2, h3, h4, nav {
-            font-family: var(--heading-font);
-            letter-spacing: 0.02em;
-            line-height: 1.3;
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
         
-        /* Liens avec transitions douces */
-        a, button, .category-badge {
-            transition: all var(--transition-speed) ease;
+        /* TYPOGRAPHIE */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
         
-        img {
-            max-width: 100%;
-            height: auto;
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
         }
         
-        /* En-tête responsive avec gradient */
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            font-size: clamp(1rem, 2vw, 1.125rem);
+        }
+        
+        /* HEADER */
         header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--light-text);
-            padding: calc(var(--spacing-lg) + 5px) 0;
-            text-align: center;
-            position: sticky;
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: white;
+            padding: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: transform 0.5s ease-in-out; /* Augmenter la durée et utiliser ease-in-out */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-image {
-            max-width: 100px; /* Limite la largeur à 100 pixels */
-            max-height: 100px; /* Limite la hauteur à 100 pixels */
-            height: auto;
-            width: auto;
-            border-radius: var(--border-radius);
-            margin-bottom: var(--spacing-md);
-        }
-
-        
-        header.hidden {
-            transform: translateY(-100%);
-        }
-
-        .header-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
-    margin-bottom: var(--spacing-md);
-}
-
-header h1 {
-    margin: 0;
-    font-size: clamp(1.5rem, 4vw, 1.8rem);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-header p {
-    font-size: clamp(0.9rem, 2vw, 1rem);
-    margin-top: 8px;
-    opacity: 0.9;
-    font-style: italic;
-}
-        
-        /* Navigation mobile-friendly avec scrolling horizontal */
-        nav {
-            background-color: var(--secondary-color);
-            overflow-x: auto;
-            white-space: nowrap;
-            padding: var(--spacing-sm) 0;
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE/Edge */
-            -webkit-overflow-scrolling: touch;
-            position: sticky;
-            top: calc(var(--header-height-scrolled));
-            z-index: 999;
-            transition: transform 0.4s ease;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1000/500') center/cover no-repeat;
+            opacity: 0.1;
+            z-index: 0;
         }
         
-        nav.collapsed {
-            transform: translateY(-100%);
+        header .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
         }
         
-        nav.visible {
-            transform: translateY(0);
-        }
-
-        nav::-webkit-scrollbar {
-            display: none; /* Chrome/Safari/Opera */
-        }
-        
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0 var(--spacing-sm);
-            display: inline-flex;
-        }
-        
-        nav li {
-            margin: 0 var(--spacing-xs);
-        }
-        
-        nav a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 600;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--border-radius);
-            transition: background-color var(--transition-speed);
-            font-size: 0.9rem;
-            display: block;
+        /* HERO SECTION */
+        .hero {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+            text-align: center;
             position: relative;
         }
         
-        nav a:hover, nav a:active, nav a:focus {
-            background-color: var(--primary-color);
-            outline: none;
-        }
-        
-        nav a::after {
+        .hero::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--light-text);
-            transition: width var(--transition-speed) ease;
-        }
-        
-        nav a:hover::after {
             width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--light-color));
         }
         
-        /* Conteneur principal */
-        .container {
-            width: 100%;
-            max-width: 56.25rem; /* 900px */
-            margin: 0 auto;
-            padding: var(--container-padding);
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
         }
         
-        /* Articles et sections */
-        article {
-            background-color: var(--card-color);
-            padding: clamp(1.25rem, 5vw, 1.875rem); /* 20px to 30px */
-            margin-bottom: 2.5rem; /* 40px */
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--text-light);
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
         }
         
-        article:hover {
-            box-shadow: var(--hover-shadow);
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
         }
         
-        article.active {
+        .badge {
+            background-color: rgba(74, 107, 189, 0.1);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .badge:hover {
+            background-color: rgba(74, 107, 189, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .badge i {
+            font-size: 1rem;
+        }
+        
+        /* SECTIONS */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--primary-color);
+        }
+        
+        .section-title::after {
+            content: "";
             display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--primary-light));
+            border-radius: 2px;
+            margin: 1rem auto 0;
         }
         
-        article:not(.active) {
+        /* CARDS */
+        .actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .action-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .action-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            z-index: -1;
+        }
+        
+        .secondary-header::before {
+            background: linear-gradient(135deg, var(--secondary-color), #7eddad);
+        }
+        
+        .accent-header::before {
+            background: linear-gradient(135deg, var(--accent-color), #f8c471);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .action-card:hover .card-icon {
+            transform: rotateY(180deg);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-body h4 {
+            color: var(--primary-color);
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .card-body ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .card-body li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 0.5rem;
+        }
+        
+        /* SPIRIT SECTION */
+        .spirit {
+            background-color: #f1f5fb;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .spirit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1000/500') center/cover no-repeat;
+            opacity: 0.05;
+            z-index: 0;
+        }
+        
+        .spirit .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .spirit-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .spirit-points {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .spirit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .spirit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+        
+        .spirit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .spirit-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(74, 107, 189, 0.1);
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        
+        .spirit-item:hover .spirit-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* NOTE */
+        .note {
+            background-color: #fff9e6;
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 3rem 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            position: relative;
+        }
+        
+        .note::before {
+            content: '\f05a';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: -2px;
+            top: -15px;
+            background-color: var(--accent-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* NEXT STEPS */
+        .next-steps {
+            text-align: center;
+            background-color: white;
+            position: relative;
+        }
+        
+        .next-steps-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 2rem;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(74, 107, 189, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(74, 107, 189, 0.4);
+        }
+        
+        .timeline {
+            margin: 3rem auto;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: var(--primary-light);
+            opacity: 0.3;
             display: none;
         }
         
-        /* Fil d'Ariane */
-        .breadcrumb {
-            font-size: 0.85rem;
-            color: #777;
-            margin-bottom: var(--spacing-lg);
-            padding-bottom: 0.75rem; /* 12px */
-            border-bottom: 1px solid var(--border-color);
+        @media (max-width: 768px) {
+            .timeline::before {
+                display: block;
+            }
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .timeline-marker {
+            min-width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 3px;
-        }
-
-        .breadcrumb a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin: 0 5px;
-        }
-
-        .breadcrumb a:first-child {
-            margin-left: 0;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .breadcrumb > span:not(:last-child)::after {
-            content: "›";
-            margin: 0 5px;
-            color: #bbb;
-        }
-        
-        /* Boîte de titre */
-        .title-box {
-            background-color: var(--light-bg);
-            padding: clamp(1rem, 4vw, 1.5625rem); /* 16px to 25px */
-            border-left: 5px solid var(--accent-color);
-            margin-bottom: 1.5625rem; /* 25px */
-            border-radius: 0 var(--border-radius) var(--border-radius) 0;
-        }
-        
-        /* Table des matières */
-        #table-of-contents {
-            background-color: #f5f3ee;
-            padding: 1.5625rem; /* 25px */
-            border-radius: var(--border-radius);
-            margin: 1.5625rem 0 2.5rem; /* 25px 0 40px */
-            box-shadow: var(--shadow);
-        }
-
-        #table-of-contents h3 {
-            margin-top: 0;
-            color: var(--accent-color);
-            border-bottom: 2px solid #e0ded8;
-            padding-bottom: 0.75rem; /* 12px */
-            margin-bottom: 0.9375rem; /* 15px */
-        }
-        
-        #table-of-contents ul {
-            padding-left: 0.9375rem; /* 15px */
-            list-style-type: none;
-            margin: 0;
-        }
-        
-        #table-of-contents a {
-            text-decoration: none;
-            color: var(--accent-color);
-            display: block;
-            padding: 0.5rem 0; /* 8px 0 */
-            border-bottom: 1px solid var(--border-color);
-            transition: padding-left var(--transition-speed) ease, color var(--transition-speed) ease;
-        }
-        
-        #table-of-contents li:last-child a {
-            border-bottom: none;
-        }
-        
-        #table-of-contents a:hover {
-            color: var(--primary-color);
-            padding-left: 5px;
-        }
-        
-        /* Styles pour l'accordéon */
-        .category-section {
-            margin-bottom: 0.9375rem; /* 15px */
-        }
-        
-        .category-section h4 {
-            cursor: pointer;
-            user-select: none;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 1.5rem;
             position: relative;
-            padding-right: 30px;
-            color: var(--secondary-color);
-            border-bottom: 1px solid var(--secondary-color);
-            padding-bottom: 0.5rem; /* 8px */
-            margin-bottom: 0.9375rem; /* 15px */
-            margin-top: 0.9375rem; /* 15px */
+            z-index: 2;
+            transition: var(--transition);
+            flex-shrink: 0;
         }
         
-        .category-section h4::after {
-            content: "▼";
-            position: absolute;
-            right: 10px;
-            font-size: 0.7em;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: transform var(--transition-speed) ease;
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(74, 107, 189, 0.5);
         }
         
-        .category-section h4.active::after {
-            transform: translateY(-50%) rotate(180deg);
+        .timeline-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            flex: 1;
+            transition: var(--transition);
         }
         
-        .category-section ul {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease;
+        .timeline-item:hover .timeline-content {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
-        .category-section.active ul {
-            max-height: 31.25rem; /* 500px - valeur suffisamment grande */
-        }
-        
-        /* Badge de catégorie */
-        .category-badge {
-            padding: 0.25rem 0.625rem; /* 4px 10px */
-            border-radius: 3px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            color: var(--light-text);
-            display: inline-block;
-            margin-bottom: 0.5rem; /* 8px */
-        }
-        
-        /* Couleurs des badges par catégorie */
-        .litterature-idees {
-            background-color: #3498db;
-        }
-        
-        .poesie {
-            background-color: #9b59b6;
-        }
-        
-        .theatre {
-            background-color: #e67e22;
-        }
-        
-        .roman {
-            background-color: #27ae60;
-        }
-        
-        /* Titres hiérarchiques */
-        h1 {
-            font-size: clamp(1.4rem, 5vw, 1.6rem);
-            margin-top: 1.25rem; /* 20px */
-            line-height: 1.2;
-        }
-        
-        h2 {
+        .timeline-content h4 {
             color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem; /* 8px */
-            margin-top: 1.5625rem; /* 25px */
-            font-size: clamp(1.2rem, 4vw, 1.4rem);
+            margin-bottom: 0.5rem;
         }
         
-        h3 {
-            color: var(--secondary-color);
-            margin-top: 1.25rem; /* 20px */
-            font-size: clamp(1.1rem, 3vw, 1.2rem);
-        }
-        
-        h4 {
-            color: #7f8c8d;
-            margin-top: 0.9375rem; /* 15px */
-            font-size: clamp(1rem, 2vw, 1.1rem);
-        }
-        
-        /* Sections et séparateurs */
-        .section {
-            margin-bottom: 1.25rem; /* 20px */
-        }
-        
-        .section:not(:last-child)::after {
-            content: "❦";
-            display: block;
+        /* FOOTER */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
             text-align: center;
-            color: var(--accent-color);
-            font-size: 1.5rem;
-            margin: 1.875rem auto; /* 30px */
-            opacity: 0.6;
+            padding: 3rem 0;
+            position: relative;
         }
         
-        /* Citations et mise en évidence */
-        .citation {
-            font-family: var(--serif-font);
-            font-style: italic;
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            color: #555;
-            border-left: 3px solid var(--accent-color);
-            padding-left: 0.9375rem; /* 15px */
-            margin: 0.9375rem 0; /* 15px */
-            line-height: 1.6;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .concept-cle {
-            color: var(--accent-color);
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* ADAPTABILITÉ */
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline-marker {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .hero-badges {
+                justify-content: center;
+            }
+            
+            .card-header {
+                padding: 1.25rem;
+            }
+            
+            .card-body {
+                padding: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .badge {
+                padding: 0.4rem 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .note {
+                padding: 1rem;
+                margin: 2rem 0;
+            }
+            
+            .spirit-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .card-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .spirit-points {
+                padding: 1.5rem;
+            }
+            
+            .spirit-item {
+                padding: 1.25rem;
+            }
+        }
+        
+        /* AMÉLIORATIONS GRAPHIQUES */
+        .highlight {
             font-weight: 600;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: rgba(74, 107, 189, 0.2);
+            border-radius: 2px;
+        }
+        
+        .wave-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+            z-index: 1;
         }
 
-        .procede {
-            font-style: italic;
-            color: #2980b9;
-            font-weight: 500;
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 58px;
+            transform: rotateY(180deg);
+        }
+
+        .wave-divider .shape-fill {
+            fill: #FFFFFF;
         }
         
-        /* Pied de page */
-        footer {
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        .actions-section.fade-in {
+            animation-delay: 0.2s;
+        }
+        
+        .spirit.fade-in {
+            animation-delay: 0.4s;
+        }
+        
+        .next-steps.fade-in {
+            animation-delay: 0.6s;
+        }
+        
+        /* NAVIGATION */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            color: var(--primary-light);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style-type: none;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
             background-color: var(--primary-color);
-            color: var(--light-text);
-            padding: 1.25rem 0; /* 20px */
-            text-align: center;
-            margin-top: 2.5rem; /* 40px */
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            cursor: pointer;
+        }
+        
+        .mobile-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .mobile-backdrop.active {
+            opacity: 1;
+            display: block;
         }
         
         /* Bouton retour en haut */
         .back-to-top {
-            text-align: right;
-            margin-top: 1.875rem; /* 30px */
-        }
-        
-        .back-to-top a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: inline-flex;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 99;
         }
         
-        .back-to-top a:hover {
-            color: var(--primary-color);
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
         
-        /* Media queries pour une meilleure responsivité */
+        .back-to-top:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-5px);
+        }
+        
         @media (max-width: 768px) {
-            :root {
-                --container-padding: 0.9375rem; /* 15px */
+            .mobile-toggle {
+                display: block;
             }
             
-            h2 {
-                font-size: 1.3rem;
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                padding: 2rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                z-index: 1001;
+                justify-content: flex-start;
+                gap: 1.5rem;
+                overflow-y: auto;
             }
             
-            h3 {
-                font-size: 1.1rem;
+            .nav-menu.active {
+                right: 0;
             }
             
-            .title-box {
-                padding: 0.9375rem; /* 15px */
+            .close-menu {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--text-color);
+                cursor: pointer;
+                transition: var(--transition);
             }
             
-            article {
-                padding: 1.25rem; /* 20px */
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .breadcrumb {
-                font-size: 0.8rem;
+            .close-menu:hover {
+                color: var(--primary-color);
+                transform: rotate(90deg);
             }
             
-            .category-badge {
-                font-size: 0.7rem;
-            }
-            
-            nav a {
-                padding: 6px 10px;
-                font-size: 0.85rem;
-            }
-        }
-        
-        /* Support mode sombre */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-color: #1a1a1a;
-                --card-color: #2d2d2d;
-                --light-bg: #333;
-                --dark-text: #eee;
-                --light-text: #fff;
-                --border-color: #444;
-            }
-            
-            #table-of-contents {
-                background-color: #2d2d2d;
-            }
-            
-            #table-of-contents h3 {
-                border-bottom-color: #444;
-            }
-            
-            .citation {
-                color: #ccc;
+            .card-header {
+                flex-direction: row;
+                text-align: left;
+                align-items: center;
             }
         }
     </style>
-
+</head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="logo">Projet Inter-Lycées</a>
+            <button class="mobile-toggle" aria-label="Menu" id="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <button class="close-menu" aria-label="Fermer" id="close-menu">
+                    <i class="fas fa-times"></i>
+                </button>
+                <li><a href="#actions" class="nav-link">Actions</a></li>
+                <li><a href="#spirit" class="nav-link">Esprit du projet</a></li>
+                <li><a href="#next-steps" class="nav-link">Prochaines étapes</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="mobile-backdrop" id="mobile-backdrop"></div>
+    
     <header>
         <div class="container">
-            <img src="C:\Users\WINNERS.KWETEBOPE\OneDrive - Conseil Régional des Pays de La Loire - Direction des Lycées\Attachments\Design_sans_titre-removebg-preview.png" alt="Logo du " class="header-image">
-            <h1>Recueil d'analyses littéraires</h1>
-            <p>Winners</p>
+            <h1>Projet Inter-Lycées 2025-2026</h1>
         </div>
     </header>
     
+    <section class="hero">
+        <div class="container">
+            <h1>Ensemble pour la Solidarité et la Diversité</h1>
+            <p>Une initiative commune pour encourager l'engagement des élèves à travers des événements fédérateurs et enrichissants</p>
+            
+            <div class="hero-badges">
+                <div class="badge"><i class="fas fa-handshake"></i> Collaboration</div>
+                <div class="badge"><i class="fas fa-heart"></i> Solidarité</div>
+                <div class="badge"><i class="fas fa-users"></i> Diversité</div>
+                <div class="badge"><i class="fas fa-star"></i> Excellence</div>
+            </div>
+        </div>
+        <div class="wave-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
     
-    <nav class="collapsed" aria-label="Navigation principale">
-        <ul>
-            <li><a href="#table-of-contents">Sommaire</a></li>
-            <li><a href="#litterature-idees">Littérature d'idées</a></li>
-            <li><a href="#poesie">Poésie</a></li>
-            <li><a href="#theatre">Théâtre</a></li>
-            <li><a href="#roman">Roman</a></li>
-        </ul>
-    </nav>
-    <div class="menu-backdrop"></div>
-    
-    <main class="container">
-        <section id="table-of-contents" aria-label="Table des matières">
-            <h3>Sommaire des analyses</h3>
-            
-            <div class="category-section" id="litterature-idees">
-                <h4>Littérature d'idées</h4>
-                <ul>
-                    <li><a href="#la-bruyere-politesse" class="article-link">LA BRUYÈRE, Les Caractères, V (De la politesse)</a></li>
-                    <li><a href="#la-bruyere-giton" class="article-link">LA BRUYÈRE, Portrait de Giton dans Les Caractères</a></li>
-                    <li><a href="#montesquieu" class="article-link">MONTESQUIEU, Lettre 28 des Lettres Persanes</a></li>
-                    <li><a href="#la-bruyere-ville" class="article-link">LA BRUYÈRE, Les Caractères, VII (De la Ville)</a></li>
-                </ul>
-            </div>
-            
-            <div class="category-section" id="poesie">
-                <h4>Poésie</h4>
-                <ul>
-                    <li><a href="#rimbaud-bal-pendus" class="article-link">Le Bal des Pendus</a></li>
-                    <li><a href="#rimbaud-forgeron" class="article-link">Le Forgeron</a></li>
-                    <li><a href="#rimbaud-ma-boheme" class="article-link"> Ma Bohême</a></li>
-                    <!-- Analyses futures à ajouter ici -->
-                </ul>
-            </div>
-        
-            
-            <div class="category-section" id="theatre">
-                <h4>Théâtre</h4>
-                <ul>
-                    <li><a href="#Corneille, Le Menteur1" class="article-link">Corneille, Le Menteur (Acte I, Scène 3)</a></li>
-                    <li><a href="#Corneille, Le Menteur2" class="article-link">Corneille, Le Menteur (Acte III, Scène 3)</a></li>
-                    <li><a href="#Corneille, Le Menteur3" class="article-link">Corneille, Le Menteur (Acte III, Scène 5)</a></li>
-                    <li><a href="#BEAUMARCHAIS  Le Mariage de Figaro" class="article-link">BEAUMARCHAIS, Le Mariage de Figaro (Acte V, Scène 7)</a></li>
-                    <!-- Analyses futures à ajouter ici -->
-                </ul>
-            </div>
-            
-            <div class="category-section" id="roman">
-                <h4>Roman</h4>
-                <ul>
-                    <li><a href="#future-analysis-3" class="article-link">Titre de nouvelle analyse de roman</a></li>
-                    <!-- Analyses futures à ajouter ici -->
-                </ul>
-            </div>
-        </section>
+    <section id="actions" class="actions-section fade-in">
+        <div class="container">
+            <h2 class="section-title">Actions Envisagées</h2>
+            <div class="actions">
+                <div class="action-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div>
+                            <h3>Course Relais Caritative</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Un événement sportif solidaire permettant de collecter des fonds pour une cause sociale ou humanitaire.</p>
+                        <p>Les élèves pourront se mobiliser ensemble pour soutenir une cause qui leur tient à cœur tout en pratiquant une activité physique.</p>
+                    </div>
+                </div>
+                
+                <div class="action-card">
+                    <div class="card-header secondary-header">
+                        <div class="card-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div>
+                            <h3>Olympiades</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Un tournoi combinant activités sportives et épreuves culturelles pour créer un moment de convivialité et de coopération entre élèves de différents lycées.</p>
+                        
+                        <h4>Épreuves culturelles</h4>
+                        <ul>
+                            <li>Improvisation théâtrale</li>
+                            <li>Mise en scène d'une courte pièce</li>
+                            <li>Quiz sur des thèmes variés (histoire, géographie, musique, cinéma...)</li>
+                        </ul>
+                        
+                        <h4>Épreuves sportives</h4>
+                        <ul>
+                            <li>Course de relais classique (4x100m)</li>
+                            <li>Course en sac, course avec œuf sur une cuillère</li>
+                            <li>Tournoi multisports</li>
+                            <li>Tir à la corde </li>
+                        </ul>
+                    </div>
+                </div>
 
-        
-        
-        <article id="la-bruyere-politesse" class="article">
-            <div class="breadcrumb">
-                <a href="#table-of-contents">Sommaire</a> > 
-                <a href="#litterature-idees">Littérature d'idées</a> > 
-                De la politesse
-            </div>
-            
-            <div class="title-box">
-                <span class="category-badge litterature-idees">Littérature d'idées</span>
-                <h2>Explication linéaire : LA BRUYÈRE, Les Caractères, V, 32-35</h2>
-                <div class="author-info">Jean de La Bruyère (1645-1696) - Les Caractères (1688-1694)</div>
-            </div>
-            
-            <div class="section">
-                <h2>Introduction</h2>
-                <p>Jean de La Bruyère (1645-1696) est un moraliste français du XVIIe siècle, observateur minutieux de la société de son temps, particulièrement de la cour de Louis XIV. Son œuvre majeure, Les Caractères, publiée en 1688, puis enrichie jusqu'en 1694, se présente comme une succession de portraits, de maximes et de réflexions sur les mœurs de son époque. L'extrait proposé est tiré du livre V intitulé "De la société et de la conversation", où l'auteur s'intéresse aux règles qui régissent les relations sociales.</p>
                 
-                <div class="problematique">
-                    <h3>Problématique</h3>
-                    <p>Quelle est la nature et la valeur de la politesse dans les relations humaines ?</p>
+                <div class="action-card">
+                    <div class="card-header accent-header">
+                        <div class="card-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div>
+                            <h3>Kermesse Solidaire</h3>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Un événement festif avec stands et animations, visant à favoriser l'échange, la convivialité et la découverte de différentes cultures et initiatives.</p>
+                        <p>Chaque lycée pourra proposer des stands représentatifs de sa culture, ses spécialités ou ses projets solidaires.</p>
+                    </div>
                 </div>
-                
-                <p>L'analyse de ce texte permettra de suivre le cheminement de la pensée de La Bruyère à travers trois mouvements principaux :</p>
-                <ol>
-                    <li>Une définition de la politesse et de son rapport à l'authenticité morale (§32, 1ère partie)</li>
-                    <li>Une analyse de la politesse comme pratique sociale variable et codifiée (§32, 2ème partie et 3ème partie)</li>
-                    <li>Des considérations pratiques sur les manifestations concrètes de la politesse (§33 à 35)</li>
-                </ol>
             </div>
             
-            <div class="section">
-                <h2>Premier mouvement : La politesse comme apparence et non comme vertu (§32, 1ère partie)</h2>
-                
-                <h3>Une distinction entre l'être et le paraître</h3>
-                <div class="citation">« La politesse n'inspire pas toujours la bonté, l'équité, la complaisance, la gratitude ; elle en donne du moins les apparences »</div>
-                
-                <p>Le texte s'ouvre sur une maxime qui établit d'emblée une distinction entre l'être et le paraître. Cette phrase liminaire, construite sur une structure négative suivie d'une concession, pose les fondements de la réflexion.</p>
-                
-                <h3>Procédés stylistiques notables</h3>
+            <div class="note">
+                <p><strong>À noter :</strong></p>
                 <ul>
-                    <li><span class="procede">Structure antithétique</span> qui oppose l'essence morale à l'apparence sociale</li>
-                    <li><span class="procede">Accumulation</span> de substantifs désignant des qualités morales ("bonté", "équité", "complaisance", "gratitude")</li>
-                    <li><span class="procede">Métaphore théâtrale implicite</span> : "fait paraître l'homme au dehors comme il devrait être intérieurement"</li>
+                    <li>Il est possible d'organiser les olympiades sur la journée et la course caritative l'après-midi.</li>
+                    <li>Les olympiades culturelles et sportives peuvent également être combinées dans un format mixte.</li>
                 </ul>
-                
-                <p>Les adverbes de lieu "au dehors" et "intérieurement" matérialisent la frontière entre l'apparence et l'authenticité. Le verbe au conditionnel "devrait être" suggère un <span class="concept-cle">écart entre l'idéal moral et la réalité des comportements</span>.</p>
-                
-                <p>Cette première maxime, par sa concision et sa structure antithétique, est caractéristique du style de La Bruyère : elle dévoile immédiatement la dimension critique de sa réflexion sur la politesse, présentée comme un masque social plutôt qu'une vertu authentique.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="spirit" class="spirit fade-in">
+        <div class="container">
+            <div class="spirit-intro">
+                <h2 class="section-title">Esprit du Projet</h2>
+                <p>Ce projet a pour ambition de <span class="highlight">renforcer les liens entre les établissements</span>, tout en <span class="highlight">encourageant l'implication active des élèves</span> dans des actions collectives porteuses de sens.</p>
             </div>
             
-            <div class="section">
-                <h2>Deuxième mouvement : La politesse comme pratique sociale variable (§32, 2ème et 3ème parties)</h2>
+            <div class="spirit-points">
+                <h3>Nos valeurs fondamentales</h3>
                 
-                <h3>L'opposition entre principe et pratique</h3>
-                <div class="citation">« L'on peut définir l'esprit de politesse ; l'on ne peut en fixer la pratique »</div>
-                
-                <p>Cette phrase à structure binaire et antithétique (opposition entre "définir" et "fixer") introduit une distinction fondamentale entre le principe et la pratique.</p>
-                
-                <h3>Le caractère relatif et contextuel de la politesse</h3>
-                <div class="citation">« elle suit l'usage et les coutumes reçues ; elle est attachée aux temps, aux lieux, aux personnes »</div>
-                
-                <p>L'accumulation des compléments circonstanciels ("aux temps, aux lieux, aux personnes") et l'emploi de verbes comme "suit" et "attachée" inscrivent la politesse dans une <span class="concept-cle">dimension sociologique et culturelle</span>. La Bruyère utilise ici un rythme ternaire qui confère à sa démonstration une impression d'exhaustivité.</p>
-                
-                <h3>Différenciation sociale de la politesse</h3>
-                <div class="citation">« et n'est point la même dans les deux sexes, ni dans les différentes conditions »</div>
-                
-                <p>Cette observation, qui souligne la variation des codes de politesse selon le genre et la position sociale, révèle la perspective d'un moraliste attentif aux nuances des comportements sociaux.</p>
-                
-                <h3>L'acquisition de la politesse</h3>
-                <div class="citation">« l'esprit tout seul ne la fait pas deviner ; il fait qu'on la suit par imitation, et que l'on s'y perfectionne »</div>
-                
-                <p>La structure de cette phrase, avec ses propositions juxtaposées, traduit une progression logique : la politesse s'acquiert par un <span class="concept-cle">processus d'apprentissage social</span> ("imitation") plutôt que par une intuition innée.</p>
-                
-                <h3>Typologie des tempéraments</h3>
-                <div class="citation">« Il y a des tempéraments qui ne sont susceptibles que de la politesse, et il y en a d'autres qui ne servent qu'aux grands talents ou à une vertu solide »</div>
-                
-                <p>Cette phrase établit un contraste entre deux types d'individus, certains n'ayant que l'apparence ("susceptibles que de la politesse") et d'autres possédant des qualités substantielles ("grands talents", "vertu solide").</p>
-                
-                <h3>Concession sur l'utilité sociale de la politesse</h3>
-                <div class="citation">« Il est vrai que les manières polies donnent cours au mérite et le rendent agréable, et qu'il faut avoir de bien éminentes qualités pour se soutenir sans la politesse »</div>
-                
-                <p>Cette conclusion, introduite par la locution concessive "il est vrai que", reconnaît l'utilité sociale de la politesse comme véhicule du mérite. La <span class="procede">métaphore commerciale</span> "donnent cours" suggère que la politesse permet la circulation et la valorisation des qualités personnelles dans l'espace social.</p>
-                
-                <h3>Définition relationnelle de la politesse</h3>
-                <div class="citation">« Il me semble que l'esprit de politesse est une certaine attention à faire que, par nos paroles et par nos manières, les autres soient contents de nous et d'eux-mêmes »</div>
-                
-                <p>Cette définition, présentée avec une modestie apparente ("Il me semble"), met l'accent sur la dimension relationnelle et psychologique de la politesse. La structure de la phrase, avec sa proposition infinitive complexe, traduit l'idée d'un <span class="concept-cle">effort conscient orienté vers autrui</span>.</p>
-            </div>
-            
-            <div class="section">
-                <h2>Troisième mouvement : Applications pratiques et manifestations concrètes de la politesse (§33 à 35)</h2>
-                
-                <h3>Une faute contre la politesse</h3>
-                <div class="citation">« C'est une faute contre la politesse que de louer immodérément en présence de ceux que vous faites chanter ou toucher un instrument, quelque autre personne qui a ces mêmes talents ; comme devant ceux qui vous lisent leurs vers, un autre poète »</div>
-                
-                <p>Cette remarque, construite sur un <span class="procede">parallélisme</span> ("ceux que vous faites chanter..." / "ceux qui vous lisent leurs vers..."), illustre un principe de tact social. L'adverbe "immodérément" suggère que le problème réside non pas dans l'éloge lui-même, mais dans son excès.</p>
-                
-                <p>Cette observation révèle la fine psychologie de La Bruyère, attentif aux <span class="concept-cle">blessures d'amour-propre</span> que peuvent causer des comportements apparemment anodins.</p>
-                
-                <h3>L'art de plaire</h3>
-                <div class="citation">« Dans les repas ou les fêtes que l'on donne aux autres, dans les présents qu'on leur fait, et dans tous les plaisirs qu'on leur procure, il y a faire bien, et faire selon leur goût : le dernier est préférable »</div>
-                
-                <p>La structure de cette phrase, avec son <span class="procede">rythme ternaire</span> initial ("repas ou fêtes", "présents", "plaisirs") suivi d'une opposition binaire ("faire bien" / "faire selon leur goût"), traduit une hiérarchisation des priorités dans l'art de plaire.</p>
-                
-                <p>L'expression lapidaire finale "le dernier est préférable" constitue une maxime qui privilégie <span class="concept-cle">l'adaptation aux goûts d'autrui</span> plutôt que l'obéissance à des standards abstraits.</p>
-                
-                <h3>La réception des compliments</h3>
-                <div class="citation">« Il y aurait une espèce de férocité à rejeter indifféremment toute sorte de louanges : l'on doit être sensible à celles qui nous viennent des gens de bien, qui louent en nous sincèrement des choses louables »</div>
-                
-                <p>Le terme fort "férocité", appartenant au champ lexical de la sauvagerie, crée un effet de surprise qui souligne l'importance sociale de l'acceptation gracieuse des compliments.</p>
-                
-                <p>La seconde partie de la phrase introduit cependant une nuance morale importante : toutes les louanges ne se valent pas. Le <span class="procede">triplement de la racine "lou-"</span> ("louanges", "louent", "louables") insiste sur <span class="concept-cle">l'authenticité comme critère de distinction</span>.</p>
-            </div>
-            
-            <div class="section">
-                <h2>Conclusion</h2>
-                <p>À travers ces fragments, La Bruyère développe une réflexion nuancée sur la politesse, oscillant entre critique morale et analyse sociologique. Il commence par démasquer la politesse comme simple apparence qui ne garantit pas la vertu intérieure, puis reconnaît sa nécessité sociale et sa complexité comme pratique culturellement déterminée, avant de proposer des exemples concrets qui illustrent sa conception de la politesse authentique.</p>
-                
-                <p>Cette analyse révèle la finesse d'observation du moraliste, capable de saisir les subtilités des comportements sociaux tout en maintenant un idéal moral. La Bruyère se montre à la fois lucide sur le caractère conventionnel de la politesse et attaché à une conception qui la rattache à une forme d'éthique relationnelle.</p>
-                
-                <p>Cette réflexion s'inscrit parfaitement dans le projet général des <em>Caractères</em> : observer les mœurs de son temps avec un regard critique mais nuancé. Elle témoigne également des préoccupations d'une époque où le développement de la vie de cour et des salons plaçait les codes de civilité au centre des interactions sociales.</p>
-                
-                <p>Au-delà de son contexte historique, cette méditation sur l'écart entre les apparences sociales et l'authenticité morale conserve une pertinence remarquable pour comprendre les rapports humains dans toute société régie par des conventions.</p>
-            </div>
-            
-            <div class="aide-memoire">
-                <h2>Aide-mémoire : points essentiels</h2>
-                <ol>
-                    <li><strong>Perspective critique</strong> : distinction entre apparence sociale et authenticité morale</li>
-                    <li><strong>Analyse sociologique</strong> : 
-                        <ul>
-                            <li>La politesse comme pratique culturellement déterminée</li>
-                            <li>Variabilité selon les genres, les conditions et les contextes</li>
-                        </ul>
-                    </li>
-                    <li><strong>Procédés stylistiques majeurs</strong> :
-                        <ul>
-                            <li>Structures antithétiques</li>
-                            <li>Maximes concises</li>
-                            <li>Rythmes ternaires</li>
-                        </ul>
-                    </li>
-                    <li><strong>Dimension psychologique</strong> :
-                        <ul>
-                            <li>Finesse d'observation des comportements sociaux</li>
-                            <li>Attention portée à l'amour-propre d'autrui</li>
-                        </ul>
-                    </li>
-                    <li><strong>Éthique relationnelle</strong> :
-                        <ul>
-                            <li>La politesse comme attention portée au bien-être d'autrui</li>
-                            <li>L'importance de l'adaptation aux goûts des autres</li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-            
-            
-    </article>
-        
-        <article id="la-bruyere-giton" class="article">
-            <div class="breadcrumb">
-                <a href="#table-of-contents">Sommaire</a> > 
-                <a href="#litterature-idees">Littérature d'idées</a> > 
-                Portrait de Giton
-            </div>
-                
-                <div class="title-box">
-                    <span class="category-badge litterature-idees">Littérature d'idées</span>
-                    <h2>Analyse linéaire du portrait de Giton dans Les Caractères de La Bruyère</h2>
-                    <div class="author-info">Jean de La Bruyère (1645-1696) - Les Caractères (1688)</div>
-                </div>
-                
-                <div class="section">
-                    <h2>Introduction</h2>
-                    <p>Jean de La Bruyère (1645-1696) est un moraliste français du XVIIe siècle dont l'œuvre majeure, Les Caractères ou les Mœurs de ce siècle (1688), propose une galerie de portraits satiriques de la société de son temps. Le passage étudié présente le personnage de Giton, figure emblématique du riche dans l'œuvre. Ce portrait s'inscrit dans la tradition des caractères moraux inspirés de Théophraste, où La Bruyère dépeint avec acuité les travers de ses contemporains.</p>
-                    
-                    <p>La situation de ce portrait dans Les Caractères est significative : il fait partie du livre "Des biens de fortune" où l'auteur critique l'importance excessive accordée à l'argent dans la société. Ce portrait de Giton est d'ailleurs mis en parallèle avec celui de Phédon, le pauvre, formant ainsi un diptyque révélateur des inégalités sociales.</p>
-                    
-                    <div class="problematique">
-                        <h3>Problématique</h3>
-                        <p>Comment La Bruyère utilise-t-il la description physique et comportementale pour révéler une critique sociale profonde de l'influence de la richesse sur l'attitude d'un homme et la perception que les autres ont de lui ?</p>
+                <div class="spirit-grid">
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>Égalité</h4>
+                        <p>Toutes les écoles seront mises sur un pied d'égalité, sans distinction ni favoritisme.</p>
                     </div>
                     
-                    <p>Notre analyse suivra trois mouvements :</p>
-                    <ol>
-                        <li>Le portrait physique de Giton</li>
-                        <li>Son comportement en société</li>
-                        <li>Sa personnalité et la chute révélatrice du portrait</li>
-                    </ol>
-                </div>
-                
-                <div class="section">
-                    <h2>Premier mouvement : Le portrait physique de Giton</h2>
-                    <h3>Une apparence physique symbolique</h3>
-                    <div class="citation">"Giton a le teint frais, le visage plein, les joues pendantes, l'œil fixe et assuré, les épaules larges, l'estomac haut [...]"</div>
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4>Inclusion</h4>
+                        <p>L'accent sera mis sur l'inclusion et le respect mutuel entre tous les participants.</p>
+                    </div>
                     
-                    <p>La Bruyère commence par dépeindre l'apparence physique de Giton à travers une <span class="procede">accumulation</span> de traits caractéristiques. Le lexique employé construit l'image d'un homme corpulent, dont l'embonpoint suggère l'aisance matérielle. Cette abondance physique symbolise la <span class="concept-cle">richesse du personnage</span>.</p>
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h4>Dépassement de soi</h4>
+                        <p>Encouragement au dépassement personnel et à l'entraide entre les élèves.</p>
+                    </div>
                     
-                    <h3>Une syntaxe au service de l'imposante présence</h3>
-                    <p>La syntaxe est remarquablement efficace : des phrases courtes, au rythme saccadé, s'enchaînent avec une structure répétitive (sujet + verbe + complément), créant un effet d'accumulation qui donne l'impression d'un personnage imposant, occupant tout l'espace. Le <span class="procede">style paratactique</span> renforce cette sensation d'omniprésence.</p>
-                    
-                    <h3>Actions bruyantes et sans-gêne</h3>
-                    <div class="citation">"il parle avec confiance, fait répéter celui qui l'entretient [...] il se mouche avec grand bruit, crache fort loin, éternue fort haut [...]"</div>
-                    
-                    <p>Les verbes d'action et de mouvement soulignent l'assurance et le sans-gêne du personnage. Les <span class="procede">adverbes d'intensité</span> ("grand", "fort", "haut") amplifient cette impression. Giton s'impose bruyamment, sans considération pour autrui.</p>
-                    
-                    <h3>Le sommeil du juste</h3>
-                    <div class="citation">"il dort le jour, il dort la nuit, et profondément ; il ronfle en compagnie"</div>
-                    
-                    <p>La <span class="procede">répétition</span> de "il dort" insiste sur sa tranquillité d'esprit, sa sérénité matérielle qui lui permet de dormir "profondément" et même de "ronfler en compagnie", sans se soucier des conventions sociales.</p>
-                </div>
-                
-                <div class="section">
-                    <h2>Deuxième mouvement : Son comportement en société</h2>
-                    
-                    <h3>Une présence dominante</h3>
-                    <div class="citation">"Il occupe à table et à la promenade plus de place qu'un autre ; il tient le milieu en se promenant avec ses égaux [...]"</div>
-                    
-                    <p>Le deuxième mouvement montre comment Giton se comporte en société et, surtout, comment les autres se comportent envers lui. La Bruyère utilise habilement l'<span class="procede">anaphore</span> "il" qui martèle le début de nombreuses phrases, renforçant l'égocentrisme du personnage.</p>
-                    
-                    <h3>Dynamique de domination et soumission</h3>
-                    <div class="citation">"il interrompt, il redresse [...] on ne l'interrompt pas, on l'écoute, on est de son avis"</div>
-                    
-                    <p>Les verbes de domination ("il interrompt", "il redresse") contrastent avec la soumission des autres ("on ne l'interrompt pas", "on l'écoute", "on est de son avis"). Ce jeu d'<span class="procede">oppositions grammaticales</span> traduit parfaitement les rapports de force sociaux. L'utilisation du "on" impersonnel pour désigner l'entourage renforce l'idée que tous adoptent la même attitude servile face à Giton.</p>
-                    
-                    <h3>L'ascendant sur les autres</h3>
-                    <div class="citation">"il s'arrête, et l'on s'arrête ; il continue de marcher, et l'on marche : tous se règlent sur lui"</div>
-                    
-                    <p>La <span class="procede">gradation</span> dans la description de son influence sociale est particulièrement efficace. La ponctuation, avec l'utilisation des points-virgules et des deux-points, crée un rythme qui souligne l'<span class="concept-cle">ascendant inexorable de Giton</span> sur son entourage.</p>
-                    
-                    <h3>Une déférence systématique</h3>
-                    <p>La figure stylistique du <span class="procede">parallélisme</span> ("on ne l'interrompt pas, on l'écoute") renforce l'idée d'une soumission collective et systématique à ce personnage. La Bruyère montre ainsi comment la richesse confère un pouvoir social démesuré.</p>
-                </div>
-                
-                <div class="section">
-                    <h2>Troisième mouvement : Sa personnalité et la chute révélatrice</h2>
-                    
-                    <h3>Une mise en scène de soi</h3>
-                    <div class="citation">"vous le voyez s'enfoncer dans un fauteuil, croiser les jambes l'une sur l'autre, froncer le sourcil, abaisser son chapeau sur ses yeux pour ne voir personne, ou le relever ensuite..."</div>
-                    
-                    <p>L'<span class="procede">hypotypose</span> "vous le voyez s'enfoncer dans un fauteuil..." plonge le lecteur dans une scène vivante, presque théâtrale, où les gestes du personnage révèlent son arrogance.</p>
-                    
-                    <p>Les infinitifs qui s'enchaînent ("s'enfoncer", "croiser", "froncer", "abaisser", "relever", "découvrir") créent un effet d'<span class="procede">accumulation</span> qui mime l'assurance tranquille du riche. Les <span class="procede">oppositions</span> ("abaisser son chapeau" / "le relever ensuite") montrent le caractère capricieux et arbitraire de ses comportements.</p>
-                    
-                    <h3>Portrait moral</h3>
-                    <div class="citation">"Il est enjoué, grand rieur, impatient, présomptueux, colère, libertin, politique, mystérieux"</div>
-                    
-                    <p>L'<span class="procede">accumulation finale des adjectifs</span> dresse un portrait moral complet, majoritairement négatif, créant un effet d'accélération qui prépare la chute.</p>
-                    
-                    <h3>La chute révélatrice</h3>
-                    <div class="citation">"Il est riche"</div>
-                    
-                    <p>La chute du portrait constitue une <span class="procede">pointe satirique</span> remarquable. Cette phrase minimale contraste avec les longues énumérations précédentes. Elle révèle brutalement que tous les traits décrits ne proviennent que d'une seule qualité : sa richesse.</p>
-                    
-                    <p>La brièveté de cette conclusion agit comme un coup de théâtre qui dévoile la <span class="concept-cle">critique sociale</span> de La Bruyère : ce n'est pas le mérite personnel mais l'argent qui détermine le comportement et la considération sociale.</p>
-                </div>
-                
-                <div class="section">
-                    <h2>Conclusion</h2>
-                    <p>Cette analyse linéaire du portrait de Giton met en lumière l'art de La Bruyère comme moraliste et peintre de caractères. Par une construction progressive et méticuleuse, il dévoile comment la richesse façonne non seulement l'apparence et le comportement d'un individu, mais aussi la perception et l'attitude des autres à son égard.</p>
-                    
-                    <p>La force de ce portrait réside dans sa dimension satirique : sous l'apparente description objective se cache une critique acerbe des valeurs d'une société où l'argent détermine tout. La chute du texte ("Il est riche") révèle avec efficacité que tous les privilèges, tous les comportements décrits n'ont qu'une seule origine : la fortune.</p>
-                    
-                    <p>Cette critique de la richesse comme seul critère de valeur sociale résonne avec d'autres portraits des Caractères, notamment celui de Phédon le pauvre, mais aussi avec la tradition moraliste française, de Montaigne à Pascal, qui dénonce les fausses valeurs. Elle trouve également des échos dans la littérature des siècles suivants, comme chez Balzac ou Zola, qui exploreront également les rapports entre fortune et considération sociale.</p>
-                </div>
-                
-                <div class="aide-memoire">
-                    <h2>Aide-mémoire : points essentiels</h2>
-                    <ol>
-                        <li><strong>Construction du portrait</strong> : 
-                            <ul>
-                                <li>Structure tripartite : physique → comportement social → personnalité</li>
-                                <li>Progression vers la chute révélatrice</li>
-                            </ul>
-                        </li>
-                        <li><strong>Procédés stylistiques majeurs</strong> :
-                            <ul>
-                                <li>Accumulations et énumérations</li>
-                                <li>Anaphore du pronom "il"</li>
-                                <li>Parallélismes et oppositions</li>
-                                <li>Hypotypose pour visualiser le personnage</li>
-                            </ul>
-                        </li>
-                        <li><strong>Dimension critique</strong> :
-                            <ul>
-                                <li>Satire de la richesse comme seul critère de valeur sociale</li>
-                                <li>Dénonciation des comportements serviles envers les riches</li>
-                                <li>Le diptyque Giton/Phédon comme révélateur des inégalités sociales</li>
-                            </ul>
-                        </li>
-                        <li><strong>Art du moraliste</strong> :
-                            <ul>
-                                <li>Observation acérée des comportements sociaux</li>
-                                <li>Concision efficace de la chute</li>
-                                <li>Critique implicite des valeurs de son temps</li>
-                            </ul>
-                        </li>
-                    </ol>
-                </div>
-                
-                <div class="back-to-top">
-                    <a href="#table-of-contents" aria-label="Retour au sommaire">↑ Retour au sommaire</a>
-                </div>
-            </article>
-        
-        <article id="montesquieu" class="article">
-            <div class="breadcrumb">
-                <a href="#table-of-contents">Sommaire</a> > 
-                <a href="#litterature-idees">Littérature d'idées</a> > 
-                Lettre 28 des Lettres Persanes
-            </div>
-            
-            <div class="title-box">
-                <span class="category-badge litterature-idees">Littérature d'idées</span>
-                <h2>Explication linéaire : Lettre 28 des Lettres Persanes</h2>
-                <div class="author-info">Charles de Montesquieu (1689-1755) - Les Lettres Persanes (1721)</div>
-            </div>
-            
-            <div class="section">
-                <h2>Introduction</h2>
-                <p>Charles de Montesquieu, philosophe et écrivain des Lumières du XVIIIe siècle, publie anonymement en 1721 les "Lettres Persanes", roman épistolaire qui met en scène deux voyageurs persans, Rica et Usbek, découvrant la France et l'Europe. Ces personnages permettent à l'auteur d'adopter un regard étranger et naïf sur la société française, créant ainsi un <span class="concept-cle">effet de distanciation</span> propice à la critique sociale.</p>
-                
-                <p>La lettre 28, écrite par Rica, se situe au début de leur séjour parisien et décrit une sortie au théâtre. Ce passage est particulièrement intéressant car il illustre parfaitement la technique satirique de Montesquieu : sous couvert de décrire une simple sortie culturelle, l'auteur dévoile les codes sociaux de la société française et en révèle l'artificialité et l'hypocrisie.</p>
-                
-                <div class="problematique">
-                    <h3>Problématique</h3>
-                    <p>Comment Montesquieu utilise-t-il le regard étranger pour révéler l'artificialité des conventions sociales françaises à travers la description d'une sortie au théâtre ?</p>
-                </div>
-                
-                <p>Le texte se structure en quatre mouvements distincts : la découverte du lieu théâtral, l'observation des spectateurs dans les loges, la description des jeunes courtisans, et enfin les interactions sociales dans les coulisses.</p>
-            </div>
-            
-            <div class="section">
-                <h2>Premier mouvement : La découverte du théâtre</h2>
-                
-                <h3>Le paradoxe initial</h3>
-                <div class="citation">"Je vis hier une chose assez singulière, quoiqu'elle se passe tous les jours à Paris."</div>
-                
-                <p>Cette <span class="procede">contradiction</span> initiale met immédiatement en place le décalage culturel qui caractérise le regard de Rica. Ce qui est banal pour les Parisiens devient extraordinaire aux yeux de l'étranger. Le lexique de l'étrangeté ("singulière", "espèce de scène") traduit l'incompréhension du narrateur face à cette pratique culturelle.</p>
-                
-                <h3>Le vocabulaire approximatif</h3>
-                <div class="citation">"une estrade qu'on nomme le théâtre"</div>
-                
-                <p>Rica utilise un <span class="procede">vocabulaire approximatif</span> qui souligne son statut d'étranger ne maîtrisant pas les termes spécifiques de la culture française. Cette naïveté apparente du narrateur est un procédé littéraire qui permet à Montesquieu de feindre l'objectivité tout en livrant une critique sociale acérée.</p>
-                
-                <h3>La généralisation des observations</h3>
-                <div class="citation">"s'assemble", "va jouer", "tout le peuple"</div>
-                
-                <p>L'utilisation du <span class="procede">présent de l'indicatif</span> confère une valeur générale à ces observations, suggérant qu'il s'agit d'habitudes ritualisées plutôt que d'événements ponctuels. Le lexique du collectif montre l'importance sociale du théâtre dans la France du XVIIIe siècle.</p>
-            </div>
-            
-            <div class="section">
-                <h2>Deuxième mouvement : Le spectacle des spectateurs</h2>
-                
-                <h3>Le renversement du point de vue</h3>
-                <div class="citation">"Aux deux côtés, on voit, dans de petits réduits qu'on nomme loges, des hommes et des femmes qui jouent ensemble des scènes muettes"</div>
-                
-                <p>Rica déplace progressivement son attention des acteurs vers les spectateurs, opérant un <span class="concept-cle">renversement significatif</span>. La <span class="procede">métaphore théâtrale</span> appliquée aux spectateurs ("jouent", "scènes") suggère que le véritable spectacle se déroule dans les loges et non sur scène.</p>
-                
-                <h3>L'effet de miroir culturel</h3>
-                <div class="citation">"à peu près comme celles qui sont en usage en notre Perse"</div>
-                
-                <p>La référence à la Perse crée un <span class="procede">effet de miroir culturel</span> qui relativise les pratiques françaises et les prive de leur caractère "naturel" aux yeux du lecteur français.</p>
-                
-                <h3>La description des passions</h3>
-                <div class="citation">"Tantôt c'est... tantôt une autre..."</div>
-                
-                <p>L'<span class="procede">anaphore</span> structure la description des interactions amoureuses dans les loges. Le champ lexical des passions ("affligée", "langueur", "yeux vifs", "air passionné", "dévore des yeux") est intensifié par la métaphore picturale ("peintes sur les visages") qui suggère l'artifice de ces comportements. L'<span class="procede">oxymore</span> "une éloquence qui n'en est que plus vive pour être muette" renforce cette idée de théâtralité des émotions.</p>
-                
-                <h3>La fausse pudeur</h3>
-                <div class="citation">"les actrices ne paraissent qu'à demi-corps, et ont ordinairement un manchon, par modestie, pour cacher leurs bras"</div>
-                
-                <p>La fausse pudeur qui consiste à cacher ses bras tout en exposant son décolleté illustre l'<span class="concept-cle">hypocrisie sociale</span> que le regard étranger permet de mettre en évidence.</p>
-                
-                <h3>La division sociale</h3>
-                <div class="citation">"Il y a en bas une troupe de gens debout, qui se moquent de ceux qui sont en haut sur le théâtre, et ces derniers rient à leur tour de ceux qui sont en bas"</div>
-                
-                <p>La <span class="procede">structure symétrique</span> de la phrase reflète la division sociale entre le parterre (populaire) et les loges (aristocratie), tout en montrant leur interdépendance dans un jeu de regards croisés.</p>
-            </div>
-            
-            <div class="section">
-                <h2>Troisième mouvement : Le manège des courtisans</h2>
-                
-                <h3>Une fonction sociale institutionnalisée</h3>
-                <div class="citation">"quelques gens qu'on prend pour cet effet dans un âge peu avancé"</div>
-                
-                <p>La <span class="procede">périphrase</span> suggère ironiquement qu'il s'agit d'une fonction sociale institutionnalisée. L'expression "pour soutenir la fatigue" introduit l'idée que ces activités mondaines, loin d'être plaisantes, constituent un véritable labeur.</p>
-                
-                <h3>L'agitation perpétuelle</h3>
-                <div class="citation">"être partout", "passent", "montent", "sont en haut, en bas", "plongent", "on les perd, ils reparaissent"</div>
-                
-                <p>L'<span class="procede">accumulation verbale</span> traduit l'agitation permanente et quelque peu ridicule de ces jeunes hommes. Le rythme de la phrase, avec ses juxtapositions et coordinations, mime leur mouvement incessant. Ce dynamisme excessif contraste avec la futilité de leur occupation, créant un effet comique.</p>
-                
-                <h3>Les vieillards ridicules</h3>
-                <div class="citation">"On en voit même qui, par un prodige qu'on n'aurait osé espérer de leurs béquilles, marchent et vont comme les autres."</div>
-                
-                <p>L'<span class="procede">ironie</span> est manifeste dans l'hyperbole "prodige" et la métonymie "béquilles" qui représente leur vieillesse. Cette observation suggère le ridicule des conventions sociales qui poussent même les personnes âgées à participer à ces rituels de séduction inappropriés à leur condition.</p>
-            </div>
-            
-            <div class="section">
-                <h2>Quatrième mouvement : Les coulisses et les mœurs légères</h2>
-                
-                <h3>La comédie sociale</h3>
-                <div class="citation">"comédie particulière"</div>
-                
-                <p>L'expression prolonge la <span class="procede">métaphore théâtrale</span> et suggère que les rapports sociaux sont aussi artificiels que la représentation elle-même. La progression "on commence par des révérences, on continue par des embrassades" montre l'escalade rapide de la familiarité, soulignant son caractère codifié et artificiel.</p>
-                
-                <h3>L'excès de familiarité</h3>
-                <div class="citation">"la connaissance la plus légère met un homme en droit d'en étouffer un autre"</div>
-                
-                <p>L'<span class="procede">euphémisme</span> dénonce l'excès de familiarité entre personnes à peine connues. Le verbe "étouffer" crée une image comique tout en suggérant le caractère envahissant de ces conventions sociales.</p>
-                
-                <h3>L'hypocrisie des "princesses"</h3>
-                <div class="citation">"on dit que"</div>
-                
-                <p>La formulation indirecte permet à Rica de rapporter des propos potentiellement scandaleux sans en assumer la responsabilité. Le contraste entre les moments où elles sont "assez sauvages" (pendant le spectacle) et le "reste du temps" où "elles sont traitables" suggère l'<span class="concept-cle">hypocrisie de leur vertu de façade</span>.</p>
-                
-                <h3>La métaphore finale</h3>
-                <div class="citation">"l'ivresse qui les quitte aisément"</div>
-                
-                <p>La <span class="procede">métaphore</span> compare la vertu de ces femmes à une intoxication passagère, insinuant que leur véritable nature est plus légère que les apparences ne le laissent croire.</p>
-            </div>
-            
-            <div class="aide-memoire">
-                <h2>Aide-mémoire : points essentiels</h2>
-                <ol>
-                    <li><strong>Procédé narratif central</strong> :
-                        <ul>
-                            <li>Le regard étranger comme instrument de distanciation critique</li>
-                            <li>La naïveté feinte comme masque de la satire sociale</li>
-                        </ul>
-                    </li>
-                    <li><strong>Procédés stylistiques majeurs</strong> :
-                        <ul>
-                            <li>Métaphore filée du théâtre appliquée à la société</li>
-                            <li>Ironie et euphémismes</li>
-                            <li>Structures syntaxiques symétriques reflétant les divisions sociales</li>
-                            <li>Vocabulaire approximatif mimant le regard étranger</li>
-                        </ul>
-                    </li>
-                    <li><strong>Critique sociale</strong> :
-                        <ul>
-                            <li>L'artificialité des rapports sociaux</li>
-                            <li>L'hypocrisie des codes de bienséance</li>
-                            <li>La futilité des occupations mondaines</li>
-                            <li>La théâtralisation des comportements</li>
-                        </ul>
-                    </li>
-                    <li><strong>Philosophie des Lumières</strong> :
-                        <ul>
-                            <li>La relativisation des pratiques culturelles</li>
-                            <li>La mise en évidence du caractère arbitraire des conventions sociales</li>
-                            <li>La critique implicite de l'ordre établi</li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-        </article>
-        
-        <article id="la-bruyere-ville" class="article">
-            <div class="breadcrumb">
-                <a href="#table-of-contents">Sommaire</a> > 
-                <a href="#litterature-idees">Littérature d'idées</a> > 
-                De la Ville
-            </div>
-            
-            <div class="title-box">
-                <span class="category-badge litterature-idees">Littérature d'idées</span>
-                <h2>Explication linéaire : Les Caractères, chapitre VII, 20-21</h2>
-                <div class="author-info">Jean de La Bruyère (1645-1696) - Les Caractères (1688)</div>
-            </div>
-            
-            <div class="section">
-                <h2>Introduction</h2>
-                <p>Jean de La Bruyère (1645-1696), moraliste français du XVIIe siècle, publie son œuvre majeure <em>Les Caractères</em> en 1688. Dans cet ouvrage, il dresse un portrait satirique de la société de son temps, observant avec acuité les mœurs et les comportements de ses contemporains. Précepteur du petit-fils du Grand Condé, il fréquente la cour et les salons, ce qui lui permet d'observer directement les travers qu'il dépeint.</p>
-                
-                <p>Le passage étudié est extrait du chapitre VII intitulé "De la Ville", où La Bruyère examine les mœurs urbaines par opposition à celles de la cour et de la campagne. Ces deux paragraphes successifs (fragments 20 et 21) abordent respectivement la critique des visites mondaines et l'opposition entre la ville et la campagne.</p>
-                
-                <div class="problematique">
-                    <h3>Problématique</h3>
-                    <p>Comment La Bruyère utilise-t-il la description des mœurs urbaines pour dénoncer le caractère artificiel et vain de la vie sociale de son époque ?</p>
+                    <div class="spirit-item">
+                        <div class="spirit-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Innovation</h4>
+                        <p>D'autres actions ou initiatives peuvent être proposées au fil du projet, en fonction des idées et des dynamiques locales.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="section">
-                <h2>Premier mouvement : La critique des visites mondaines</h2>
+        </div>
+    </section>
+    
+    <section id="next-steps" class="next-steps fade-in">
+        <div class="container">
+            <h2 class="section-title">Prochaines Étapes</h2>
+            <div class="next-steps-content">
+                <p>Pour cette première édition, nous comptons proposer cette initiative à cinq autres lycées, y compris le vôtre. L'objectif est de créer une dynamique collective entre établissements, dans un esprit de coopération et de partage.</p>
                 
-                <h3>Une ouverture critique et expressive</h3>
-                <div class="citation">"Pénible coutume, asservissement incommode !"</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-content">
+                            <h4>Réunion initiale</h4>
+                            <p>Organisation d'une réunion d'échange avec les membres des CVL des différents lycées participants.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-content">
+                            <h4>Co-construction</h4>
+                            <p>Définition précise des actions et établissement d'un calendrier pour l'année scolaire.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-content">
+                            <h4>Préparation</h4>
+                            <p>Organisation logistique et communication autour du projet au sein de chaque établissement.</p>
+                        </div>
+                    </div>
+                </div>
                 
-                <p>Cette structure syntaxique expressive, avec deux substantifs accompagnés d'adjectifs péjoratifs (<span class="procede">pénible</span>, <span class="procede">incommode</span>), établit d'emblée la position critique du moraliste face aux conventions sociales. Le terme <span class="concept-cle">asservissement</span> est particulièrement fort, suggérant une forme d'esclavage volontaire aux usages mondains.</p>
+                <p>C'est pourquoi nous souhaiterions organiser une réunion d'ici le mois de mai avec des membres des CVL des lycées concernés, afin d'échanger nos idées, aligner nos points de vue et co-construire les bases de ce projet pour l'année scolaire prochaine.</p>
                 
-                <h3>Une structure syntaxique mimétique</h3>
-                <div class="citation">"se chercher incessamment", "ne se rencontrer que pour", "n'entrer dans une chambre", "ne sortir de chez soi"</div>
                 
-                <p>La succession de propositions infinitives crée un effet de liste accablante, renforcé par la répétition de tournures négatives qui soulignent le caractère vain de ces activités. La structure syntaxique mime par sa longueur et son accumulation l'épuisante succession de visites décrites.</p>
-                
-                <h3>L'ironie comme arme critique</h3>
-                <div class="citation">"ne se rencontrer que pour se dire des riens", "s'apprendre réciproquement des choses dont on est également instruite, et dont il importe peu que l'on soit instruite"</div>
-                
-                <p>La Bruyère utilise habilement l'<span class="procede">ironie</span> pour dénoncer l'absurdité de ces pratiques. La répétition du terme "instruite" souligne le caractère superficiel et inutile de ces échanges.</p>
-                
-                <h3>La réflexion morale profonde</h3>
-                <div class="citation">"Qui considérerait bien le prix du temps, et combien sa perte est irréparable, pleurerait amèrement sur de si grandes misères."</div>
-                
-                <p>Cette phrase, qui contraste par sa brièveté avec la longue période précédente, révèle la véritable préoccupation du moraliste : le <span class="concept-cle">gaspillage du temps</span>. L'expression "grandes misères" pour qualifier ces futilités mondaines crée un effet de décalage ironique qui révèle la gravité que La Bruyère accorde à cette question.</p>
             </div>
-            
-            <div class="section">
-                <h2>Second mouvement : L'ignorance des citadins et leur mépris du monde rural</h2>
-                
-                <h3>L'indifférence urbaine face à la nature</h3>
-                <div class="citation">"On s'élève à la ville dans une indifférence grossière des choses rurales et champêtres"</div>
-                
-                <p>Cette phrase d'ouverture pose d'emblée le thème de l'<span class="concept-cle">ignorance citadine</span> face au monde naturel. L'adjectif "grossière" souligne le caractère répréhensible de cette méconnaissance.</p>
-                
-                <h3>L'énumération des connaissances agricoles ignorées</h3>
-                <div class="citation">"on distingue à peine la plante qui porte le chanvre d'avec celle qui produit le lin, et le blé froment d'avec les seigles, et l'un ou l'autre d'avec le méteil"</div>
-                
-                <p>Cette <span class="procede">accumulation de termes agricoles précis</span> (chanvre, lin, blé froment, seigles, méteil) contraste avec l'indistinction attribuée aux citadins. La formule lapidaire "on se contente de se nourrir et de s'habiller" souligne le rapport uniquement utilitaire et consommateur que les habitants des villes entretiennent avec les produits de la terre.</p>
-                
-                <h3>L'opposition structurelle entre deux lexiques</h3>
-                <div class="citation">Vocabulaire rural : "guérets", "baliveaux", "provins", "regains"<br>
-                Vocabulaire urbain : "aunage", "tarif", "sol pour livre", "voie d'appel", "requête civile", "appointement", "évocation"</div>
-                
-                <p>Cette <span class="procede">opposition lexicale</span> met en évidence la spécialisation étroite des citadins dans leurs domaines respectifs (commerce et droit principalement) et leur ignorance totale des réalités naturelles.</p>
-                
-                <h3>L'antithèse fondamentale entre monde et nature</h3>
-                <div class="citation">"Ils connaissent le monde, et encore parce qu'il a de moins beau et de moins spécieux ; ils ignorent la nature, ses commencements, ses progrès, ses dons et ses largesses."</div>
-                
-                <p>L'<span class="procede">antithèse</span> entre "monde" et "nature" structure profondément ce passage, opposant un univers artificiel, réduit à ses aspects les plus médiocres, à la richesse et à la beauté du monde naturel, évoquées par l'énumération rythmée.</p>
-                
-                <h3>Le portrait satirique du "vil praticien"</h3>
-                <div class="citation">"dans son étude sombre et enfumée", "l'esprit occupé d'une plus noire chicane"</div>
-                
-                <p>L'accumulation d'adjectifs sombres (<span class="procede">sombre</span>, <span class="procede">enfumée</span>, <span class="procede">noire</span>) crée un contraste saisissant avec l'évocation lumineuse du travail agricole où le laboureur "jouit du ciel" et "cultive la terre".</p>
-                
-                <h3>La pointe satirique finale</h3>
-                <div class="citation">"il ne comprend pas qu'on ait jamais pu se passer du greffe, du parquet et de la buvette"</div>
-                
-                <p>Cette énumération finale des lieux de l'activité juridique (avec la mention ironique de la "buvette") souligne le caractère étroit et artificiel de ce monde que les citadins prennent pour l'unique réalité.</p>
-            </div>
-            
-            <div class="aide-memoire">
-                <h2>Aide-mémoire : points essentiels</h2>
-                <ol>
-                    <li><strong>Structure du texte</strong> :
-                        <ul>
-                            <li>Premier paragraphe : critique des visites mondaines</li>
-                            <li>Second paragraphe : opposition ville/campagne</li>
-                        </ul>
-                    </li>
-                    <li><strong>Procédés stylistiques majeurs</strong> :
-                        <ul>
-                            <li>Accumulations et énumérations</li>
-                            <li>Antithèses et oppositions</li>
-                            <li>Ironie et satire</li>
-                            <li>Contrastes lexicaux</li>
-                        </ul>
-                    </li>
-                    <li><strong>Thèmes philosophiques</strong> :
-                        <ul>
-                            <li>La critique de l'artifice social</li>
-                            <li>La valeur du temps</li>
-                            <li>L'aliénation de l'homme face à la nature</li>
-                            <li>La vanité des occupations mondaines</li>
-                        </ul>
-                    </li>
-                    <li><strong>Héritage et modernité</strong> :
-                        <ul>
-                            <li>Tradition moraliste (de Montaigne à Rousseau)</li>
-                            <li>Préfiguration des critiques des Lumières</li>
-                            <li>Résonance avec la critique contemporaine de l'aliénation</li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-</article>
-<article id="rimbaud-bal-pendus" class="article">
-    <div class="breadcrumb">
-        <a href="#table-of-contents">Sommaire</a> > 
-        <a href="#poesie">Poésie</a> > 
-        Le Bal des pendus
-    </div>
-    
-    <div class="title-box">
-        <span class="category-badge poesie">Poésie</span>
-        <h2>Explication linéaire : "Le Bal des pendus"</h2>
-        <div class="author-info">Arthur Rimbaud (1854-1891) - Les Cahiers de Douai (1870)</div>
-    </div>
-    
-    <div class="section">
-        <h2>Introduction</h2>
-        <p>Arthur Rimbaud compose « Le Bal des pendus » en 1870, alors qu'il n'a que seize ans. Ce poème figure dans Les Cahiers de Douai, premier recueil de l'adolescent prodige. S'inscrivant dans une veine fantastique et macabre, ce texte révèle l'influence des poètes romantiques comme Baudelaire et Hugo sur le jeune Rimbaud.</p>
-        
-        <p>Le poème représente une danse macabre orchestrée par Belzébuth, où des pendus transformés en squelettes s'animent en une sarabande infernale. Cette œuvre de jeunesse témoigne déjà de la puissance imaginative et de l'audace stylistique qui caractériseront toute l'œuvre rimbaldienne.</p>
-        
-        <div class="problematique">
-            <h3>Problématique</h3>
-            <p>Comment Rimbaud parvient-il à créer un spectacle à la fois macabre et carnavalesque qui subvertit les représentations traditionnelles de la mort ?</p>
         </div>
-    </div>
+    </section>
     
-    <div class="section">
-        <h2>Premier mouvement (vers 1-8) : La mise en scène d'un ballet funèbre sous la direction de Belzébuth</h2>
-        
-        <h3>Le gibet et ses danseurs</h3>
-        <div class="citation">« Au gibet noir, manchot aimable, / Dansent, dansent les paladins, / Les maigres paladins du diable, / Les squelettes de Saladins. »</div>
-        
-        <h3>Procédés stylistiques</h3>
-        <ul>
-            <li><span class="procede">Oxymore</span> : "manchot aimable" créant une étrangeté inquiétante</li>
-            <li><span class="procede">Répétition</span> du verbe "dansent" suggérant un mouvement perpétuel</li>
-            <li><span class="procede">Référence médiévale</span> avec les termes "paladins" et "Saladins"</li>
-        </ul>
-        
-        <h3>L'entrée du maître de cérémonie</h3>
-        <div class="citation">« Messire Belzébuth tire par la cravate / Ses petits pantins noirs grimaçant sur le ciel. »</div>
-        
-        <p>Le titre « Messire » confère une respectabilité ironique à cette figure démoniaque, tandis que l'action de tirer par la cravate évoque à la fois le geste du marionnettiste et l'acte de la pendaison. Les pendus sont réduits à l'état de « petits pantins noirs », expression qui souligne leur <span class="concept-cle">déshumanisation</span> et leur soumission au diable.</p>
-        
-        <h3>Le geste profanateur</h3>
-        <div class="citation">« Et, leur claquant au front un revers de savate, / Les fait danser, danser aux sons d'un vieux Noël ! »</div>
-        
-        <p>Le geste vulgaire du « revers de savate » contraste avec la musique sacrée du « vieux Noël », créant une <span class="concept-cle">profanation délibérée des symboles religieux</span>.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Deuxième mouvement (vers 9-16) : L'animation grotesque et violente de la danse des morts</h2>
-        
-        <h3>La métamorphose musicale</h3>
-        <div class="citation">« Et les pantins choqués enlacent leurs bras grêles / Comme des orgues noirs, les poitrines à jour. »</div>
-        
-        <p>La comparaison avec les « orgues noirs » transforme les corps squelettiques en instruments de musique macabres, les côtes exposées (« poitrines à jour ») évoquant les tuyaux d'orgue. Cette <span class="procede">métaphore musicale</span> renforce l'idée d'une orchestration infernale.</p>
-        
-        <h3>Contraste entre passé et présent</h3>
-        <div class="citation">« Que serraient autrefois les gentes damoiselles / Se heurtent longuement dans un hideux amour. »</div>
-        
-        <p>L'opposition entre le passé romantique (l'étreinte des « gentes damoiselles ») et le présent macabre (le « hideux amour » des squelettes) accentue la dimension tragique de cette danse. L'<span class="procede">oxymore</span> « hideux amour » synthétise cette transformation grotesque.</p>
-        
-        <h3>La tonalité carnavalesque</h3>
-        <div class="citation">« Hurrah ! les gais danseurs, qui n'avez plus de panse ! / On peut cabrioler, les tréteaux sont si longs ! »</div>
-        
-        <p>L'interjection joyeuse « Hurrah ! » et l'adjectif « gais » contrastent violemment avec l'évocation de ces corps évidés, créant un effet d'<span class="procede">humour noir</span> caractéristique.</p>
-        
-        <h3>Confusion et violence</h3>
-        <div class="citation">« Hop ! qu'on ne sache plus si c'est bataille ou danse ! / Belzébuth enragé racle ses violons ! »</div>
-        
-        <p>Les exclamations et les termes évoquant le mouvement désordonné confèrent à la scène une dynamique chaotique. La confusion entre « bataille » et « danse » suggère un <span class="concept-cle">désordre violent</span> où les frontières s'effacent.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Troisième mouvement (vers 17-24) : Le paroxysme visionnaire de la danse infernale</h2>
-        
-        <h3>L'apparition spectaculaire</h3>
-        <div class="citation">« Oh ! voilà qu'au milieu de la danse macabre / Bondit dans le ciel rouge un grand squelette fou »</div>
-        
-        <p>L'interjection « Oh ! » traduit la surprise devant l'apparition soudaine de ce squelette qui se distingue des autres. Le cadre change avec l'évocation du « ciel rouge », couleur infernale qui suggère une <span class="concept-cle">apocalypse imminente</span>.</p>
-        
-        <h3>La comparaison animale</h3>
-        <div class="citation">« Emporté par l'élan, comme un cheval se cabre / Et, se sentant encor la corde raide au cou »</div>
-        
-        <p>Cette <span class="procede">comparaison équestre</span> confère une puissance bestiale au squelette, suggérant une énergie sauvage qui échappe même au contrôle de Belzébuth. La sensation persistante de la « corde raide au cou » rappelle l'origine violente de cette condition squelettique.</p>
-        
-        <h3>La souffrance persistante</h3>
-        <div class="citation">« Crispe ses petits doigts sur son fémur qui craque / Avec des cris pareils à des ricanements »</div>
-        
-        <p>L'image des « petits doigts » crispés sur l'os crée un contraste entre la fragilité et la violence, tandis que le craquement osseux produit des sons ambigus, entre douleur et moquerie.</p>
-        
-        <h3>Le retour cyclique</h3>
-        <div class="citation">« Et, comme un baladin rentre dans la baraque, / Rebondit dans le bal au chant des ossements. »</div>
-        
-        <p>La comparaison avec le « baladin » renforce la <span class="concept-cle">dimension spectaculaire et carnavalesque</span> de cette scène mortuaire. Le poème s'achève sur la reprise du quatrain initial, créant une structure circulaire qui suggère la perpétuité de cette danse infernale.</p>
-    </div>
-    
-    <div class="aide-memoire">
-        <h2>Aide-mémoire : points essentiels</h2>
-        <ol>
-            <li><strong>Réinvention du motif médiéval</strong> : transformation de la danse macabre en spectacle grotesque et terrifiant</li>
-            <li><strong>Procédés stylistiques majeurs</strong> :
-                <ul>
-                    <li>Oxymores et contrastes (sacré/profane, joie/horreur)</li>
-                    <li>Métaphores musicales et théâtrales</li>
-                    <li>Structure circulaire du poème</li>
-                </ul>
-            </li>
-            <li><strong>Dimension religieuse subversive</strong> :
-                <ul>
-                    <li>Profanation des symboles chrétiens</li>
-                    <li>Figure démoniaque comme maître de cérémonie</li>
-                </ul>
-            </li>
-            <li><strong>Héritage et originalité</strong> :
-                <ul>
-                    <li>Influence romantique (Hugo, Baudelaire)</li>
-                    <li>Prémices de l'audace créatrice rimbaldienne</li>
-                </ul>
-            </li>
-        </ol>
-    </div>
-    
-    <div class="back-to-top">
-        <a href="#table-of-contents" aria-label="Retour au sommaire">↑ Retour au sommaire</a>
-    </div>
-</article>
-<article id="rimbaud-forgeron" class="article">
-    <div class="breadcrumb">
-        <a href="#table-of-contents">Sommaire</a> > 
-        <a href="#poesie">Poésie</a> > 
-        Le Forgeron
-    </div>
-    
-    <div class="title-box">
-        <span class="category-badge poesie">Poésie</span>
-        <h2>Explication linéaire : « Le Forgeron » d'Arthur Rimbaud</h2>
-        <div class="author-info">Arthur Rimbaud (1854-1891) - Les Cahiers de Douai (1870)</div>
-    </div>
-    
-    <div class="section">
-        <h2>Introduction</h2>
-        <p>Arthur Rimbaud, poète précoce et subversif, compose « Le Forgeron » en 1870 dans son recueil Les Cahiers de Douai. Écrit pendant la fin du Second Empire et à la veille de la Commune de Paris, ce poème s'inscrit dans une période de fortes tensions sociales et politiques en France. Dans cette œuvre, Rimbaud fait parler un forgeron qui s'adresse directement au roi (Louis XVI), ce qui situe le discours à l'époque de la Révolution française.</p>
-        
-        <div class="problematique">
-            <h3>Problématique</h3>
-            <p>Comment le poète parvient-il à transformer la parole d'un simple forgeron en une revendication universelle de justice sociale ?</p>
-        </div>
-    </div>
-    
-    <div class="section">
-        <h2>Premier mouvement (vers 1-12) : L'attachement à la nature et à la valeur du travail</h2>
-        
-        <h3>L'apostrophe au roi</h3>
-        <div class="citation">"Oh ! je ne me plains pas. Je te dis mes bêtises, / C'est entre nous."</div>
-        
-        <h3>Procédés stylistiques</h3>
-        <ul>
-            <li><span class="procede">Interjection et ton familier</span> qui instaurent une forme d'oralité</li>
-            <li><span class="procede">Fausse modestie</span> ("mes bêtises") révélant l'audace du forgeron</li>
-            <li><span class="procede">Feinte complicité</span> ("C'est entre nous") qui abolit symboliquement la distance sociale</li>
-        </ul>
-        
-        <h3>Évocation sensuelle de la nature</h3>
-        <div class="citation">"n'est-ce pas joyeux de voir, au mois de juin / Dans les granges entrer des voitures de foin / Énormes ?"</div>
-        <p>Cette question rhétorique, enrichie par l'<span class="procede">enjambement</span> et l'adjectif rejeté "Énormes", exprime l'émerveillement devant l'abondance naturelle. Le rythme s'accélère avec l'<span class="procede">accumulation des sensations</span> : "De sentir l'odeur de ce qui pousse, / Des vergers quand il pleut un peu, de l'herbe rousse ?"</p>
-        
-        <h3>La vision du travail productif</h3>
-        <div class="citation">"De voir les blés, les blés, des épis pleins de grain / De penser que cela prépare bien du pain ?..."</div>
-        <p>La <span class="procede">répétition</span> "blés, blés" suggère l'abondance, tandis que la question révèle la préoccupation fondamentale du travailleur : la transformation de la nature en nourriture.</p>
-        
-        <h3>L'hypothèse du bonheur</h3>
-        <div class="citation">"Oh ! plus fort, on irait, au fourneau qui s'allume, / Chanter joyeusement en martelant l'enclume"</div>
-        <p>Le <span class="procede">martèlement des consonnes</span> mime le travail du forgeron, tandis que la condition est immédiatement posée : "Si l'on était certain de pouvoir prendre un peu, / Étant homme, à la fin !, de ce que donne Dieu !"</p>
-    </div>
-    
-    <div class="section">
-        <h2>Deuxième mouvement (vers 13-28) : La dénonciation de l'injustice sociale et politique</h2>
-        
-        <h3>La rupture</h3>
-        <div class="citation">"Mais voilà, c'est toujours la même vieille histoire !"</div>
-        <p>Cette expression familière marque une <span class="procede">rupture</span> dans le discours et souligne la lassitude face à la répétition des injustices.</p>
-        
-        <h3>La prise de conscience</h3>
-        <div class="citation">"Mais je sais, maintenant ! Je ne peux plus croire"</div>
-        <p>L'<span class="procede">anaphore du "je"</span> souligne l'affirmation de soi face à l'autorité. Le forgeron oppose ses instruments de travail ("deux bonnes mains, mon front et mon marteau") à la violence arbitraire du pouvoir.</p>
-        
-        <h3>L'opposition sociale</h3>
-        <div class="citation">"- Moi, je serais un homme, et toi, tu serais roi, / Tu me dirais : Je veux !.. Tu vois bien, c'est stupide"</div>
-        <p>Cette <span class="procede">confrontation directe</span>, renforcée par les pronoms personnels en opposition ("Moi" / "toi"), aboutit au jugement lapidaire : "Tu vois bien, c'est stupide".</p>
-        
-        <h3>La critique du faste monarchique</h3>
-        <div class="citation">"Tu crois que j'aime voir ta baraque splendide, / Tes officiers dorés, tes mille chenapans"</div>
-        <p>L'<span class="procede">oxymore</span> entre "baraque" (terme péjoratif) et "splendide" traduit le mépris pour un luxe jugé illégitime. La <span class="procede">dénonciation</span> se poursuit avec l'évocation des abus sexuels ("Ils ont rempli ton nid de l'odeur de nos filles") et des atteintes à la liberté ("Et de petits billets pour nous mettre aux Bastilles").</p>
-        
-        <h3>L'ironie face à l'injustice</h3>
-        <div class="citation">"Et nous dirons : C'est bien : les pauvres à genoux ! / Nous dorerons ton Louvre en donnant nos gros sous !"</div>
-        <p>Le <span class="procede">contraste</span> entre la posture d'humiliation ("à genoux") et la contribution forcée ("nos gros sous") cristallise l'injustice économique.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Troisième mouvement (vers 29-30) : L'affirmation d'une nouvelle conscience populaire</h2>
-        
-        <h3>Le rejet du passé</h3>
-        <div class="citation">"Non ! Ces saletés-là datent de nos papas !"</div>
-        <p>Le <span class="procede">"Non" catégorique</span> marque une rupture décisive. Le terme péjoratif "saletés" traduit le dégoût moral face aux injustices, tandis que la référence aux "papas" suggère un <span class="concept-cle">changement générationnel</span> dans la conscience populaire.</p>
-        
-        <h3>La proclamation révolutionnaire</h3>
-        <div class="citation">"Oh ! Le Peuple n'est plus une putain"</div>
-        <p>L'interjection "Oh !" exprime l'émotion intense qui accompagne cette déclaration. Le terme "Peuple" avec une majuscule acquiert une dimension sacrée, tandis que la <span class="procede">métaphore crue</span> de la "putain" évoque la soumission passée aux désirs des puissants. La négation "n'est plus" marque la rupture décisive avec cette condition d'asservissement, annonçant l'émancipation populaire et la révolution.</p>
-    </div>
-    
-    <div class="aide-memoire">
-        <h2>Aide-mémoire : points essentiels</h2>
-        <ol>
-            <li><strong>Contexte et enjeux</strong> :
-                <ul>
-                    <li>Poème écrit en 1870, à la veille de la Commune de Paris</li>
-                    <li>Utilisation de la Révolution française comme cadre symbolique</li>
-                    <li>Dimension à la fois poétique et politique</li>
-                </ul>
-            </li>
-            <li><strong>Procédés poétiques</strong> :
-                <ul>
-                    <li>Oralité et registre familier créant un effet d'authenticité</li>
-                    <li>Richesse sensorielle dans l'évocation de la nature</li>
-                    <li>Opposition entre vocabulaire du travail et du pouvoir</li>
-                    <li>Métaphores crues dénonçant l'exploitation</li>
-                </ul>
-            </li>
-            <li><strong>Portée idéologique</strong> :
-                <ul>
-                    <li>Critique virulente des inégalités sociales</li>
-                    <li>Affirmation de la dignité du travailleur</li>
-                    <li>Annonce d'une émancipation collective</li>
-                </ul>
-            </li>
-            <li><strong>Modernité de Rimbaud</strong> :
-                <ul>
-                    <li>Engagement social précoce d'un adolescent</li>
-                    <li>Préfiguration de sa révolte poétique ultérieure</li>
-                    <li>Mise en relation avec d'autres poèmes engagés comme "Les Mains de Jeanne-Marie" ou "Les Effarés"</li>
-                </ul>
-            </li>
-        </ol>
-    </div>
-    
-    <div class="back-to-top">
-        <a href="#table-of-contents" aria-label="Retour au sommaire">↑ Retour au sommaire</a>
-    </div>
-</article>
-<article id="rimbaud-ma-boheme" class="article">
-    <div class="breadcrumb">
-        <a href="#table-of-contents">Sommaire</a> > 
-        <a href="#poesie">Poésie</a> > 
-        Ma Bohême
-    </div>
-    
-    <div class="title-box">
-        <span class="category-badge poesie">Poésie</span>
-        <h2>Explication linéaire : « Ma Bohême »</h2>
-        <div class="author-info">Arthur Rimbaud (1854-1891) - Les Cahiers de Douai (1870)</div>
-    </div>
-    
-    <div class="section">
-        <h2>Introduction</h2>
-        <p>Arthur Rimbaud, poète prodige du XIXe siècle, écrit « Ma Bohême » à l'âge de seize ans. Ce sonnet fait partie du recueil Les Cahiers de Douai (1870), composé alors que le jeune poète fugue de sa ville natale pour vagabonder librement. Cette œuvre s'inscrit dans les premières productions de Rimbaud, avant sa période des Illuminations et de Une Saison en enfer, mais annonce déjà son génie poétique et sa sensibilité singulière.</p>
-        
-        <div class="citation">
-            Je m'en allais, les poings dans mes poches crevées ;<br>
-            Mon paletot aussi devenait idéal ;<br>
-            J'allais sous le ciel, Muse ! et j'étais ton féal ;<br>
-            Oh ! là là ! que d'amours splendides j'ai rêvées !<br><br>
+    <footer>
+        <div class="container">
             
-            Mon unique culotte avait un large trou.<br>
-            - Petit-Poucet rêveur, j'égrenais dans ma course<br>
-            Des rimes. Mon auberge était à la Grande-Ourse.<br>
-            - Mes étoiles au ciel avaient un doux frou-frou<br><br>
-            
-            Et je les écoutais, assis au bord des routes,<br>
-            Ces bons soirs de septembre où je sentais des gouttes<br>
-            De rosée à mon front, comme un vin de vigueur ;<br><br>
-            
-            Où, rimant au milieu des ombres fantastiques,<br>
-            Comme des lyres, je tirais les élastiques<br>
-            De mes souliers blessés, un pied près de mon cœur !
-        </div>
-        
-        <div class="problematique">
-            <h3>Problématique</h3>
-            <p>Comment Rimbaud parvient-il à transformer une expérience d'errance et de dénuement en une célébration de la liberté créatrice ?</p>
-        </div>
-    </div>
-    
-    <div class="section">
-        <h2>Premier mouvement (vers 1-4) : L'affirmation d'une condition de vagabond libre</h2>
-        
-        <h3>La désinvolture du vagabond</h3>
-        <p>Le poème s'ouvre sur une posture désinvolte du narrateur :</p>
-        <div class="citation">"Je m'en allais, les poings dans mes poches crevées"</div>
-        
-        <h3>Procédés stylistiques</h3>
-        <ul>
-            <li><span class="procede">Emploi de l'imparfait</span> inscrivant l'action dans la durée et la répétition</li>
-            <li><span class="procede">Choix du terme familier "poings"</span> plutôt que "mains" accentuant l'attitude rebelle</li>
-            <li><span class="procede">Gradation</span> entre les deux premiers vers montrant une progressive dématérialisation</li>
-        </ul>
-        
-        <h3>L'élévation poétique</h3>
-        <div class="citation">"J'allais sous le ciel, Muse ! et j'étais ton féal"</div>
-        <p>Ce vers marque une élévation soudaine par l'<span class="procede">apostrophe à la Muse</span>. Le terme médiéval <span class="concept-cle">"féal"</span> (fidèle vassal) établit une relation d'allégeance envers la poésie, présentant Rimbaud comme un chevalier servant de l'inspiration poétique.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Deuxième mouvement (vers 5-8) : La transformation de l'errance en aventure poétique</h2>
-        
-        <h3>La pauvreté sublimée</h3>
-        <div class="citation">"Mon unique culotte avait un large trou"</div>
-        <p>Ce vers poursuit l'inventaire de la pauvreté matérielle avec une touche d'humour. L'adjectif <span class="concept-cle">"unique"</span> souligne le dénuement tout en produisant un effet comique.</p>
-        
-        <h3>L'intertextualité féerique</h3>
-        <div class="citation">"Petit-Poucet rêveur, j'égrenais dans ma course<br>Des rimes."</div>
-        <p>La <span class="procede">comparaison</span> avec "Petit-Poucet" établit une intertextualité avec le conte populaire, présentant le poète comme un personnage à la fois perdu et ingénieux, semant non pas des cailloux mais des "rimes".</p>
-        
-        <h3>L'habitat cosmique</h3>
-        <div class="citation">"Mon auberge était à la Grande-Ourse"</div>
-        <p>Cette <span class="procede">métaphore</span> révèle une magnifique transposition poétique : le vagabond sans logis fait des constellations son habitat, transformant son absence de toit en privilège cosmique.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Troisième mouvement (vers 9-14) : La communion mystique avec la nature</h2>
-        
-        <h3>La contemplation nocturne</h3>
-        <div class="citation">"Et je les écoutais, assis au bord des routes,<br>Ces bons soirs de septembre où je sentais des gouttes<br>De rosée à mon front, comme un vin de vigueur"</div>
-        
-        <h3>Procédés stylistiques</h3>
-        <ul>
-            <li><span class="procede">Changement de posture</span> : le poète n'est plus en mouvement mais "assis"</li>
-            <li><span class="procede">Synesthésie</span> qui mêle ouïe ("écoutais"), toucher ("sentais") et goût ("vin")</li>
-            <li><span class="procede">Comparaison</span> entre la rosée et "un vin de vigueur" transformant cette sensation naturelle en expérience mystique</li>
-        </ul>
-        
-        <h3>Le geste poétique final</h3>
-        <div class="citation">"Où, rimant au milieu des ombres fantastiques,<br>Comme des lyres, je tirais les élastiques<br>De mes souliers blessés, un pied près de mon cœur !"</div>
-        <p>Le tercet final culmine avec l'image surprenante <span class="concept-cle">"un pied près de mon cœur"</span>, posture physiquement improbable qui symbolise l'unité retrouvée entre le corps et l'âme, entre la marche terrestre et l'élan spirituel.</p>
-    </div>
-    
-    <div class="aide-memoire">
-        <h2>Aide-mémoire : points essentiels</h2>
-        <ol>
-            <li><strong>L'alchimie poétique</strong> : transformation du dénuement matériel en richesse créatrice</li>
-            <li><strong>La symbolique de l'errance</strong> : 
-                <ul>
-                    <li>Dimension physique : pauvreté du vagabond (poches crevées, culotte trouée)</li>
-                    <li>Dimension poétique : liberté créatrice et communion avec la nature</li>
-                </ul>
-            </li>
-            <li><strong>L'univers cosmique</strong> : 
-                <ul>
-                    <li>Élévation du regard vers le ciel et les étoiles</li>
-                    <li>Métaphores célestes ("auberge à la Grande-Ourse")</li>
-                </ul>
-            </li>
-            <li><strong>La musicalité</strong> : 
-                <ul>
-                    <li>Les rimes "égrenées" comme des perles</li>
-                    <li>Le "frou-frou" des étoiles</li>
-                    <li>Les élastiques comme des "lyres"</li>
-                </ul>
-            </li>
-        </ol>
-    </div>
-    
-    <div class="back-to-top">
-        <a href="#table-of-contents" aria-label="Retour au sommaire">↑ Retour au sommaire</a>
-    </div>
-</article>
-<article id="Corneille, Le Menteur2" class="article">
-    <div class="breadcrumb">
-        <a href="#table-of-contents">Sommaire</a> > 
-        <a href="#theatre">Théâtre</a> > 
-        Corneille, Le Menteur (Acte III, Scène 3)
-    </div>
-    <div class="title-box">
-        <span class="category-badge theatre">Théâtre</span>
-        <h2>Explication linéaire : Le Menteur, Acte III, scène 3 (vers 1501-1555)</h2>
-        <div class="author-info">Pierre Corneille (1606-1684) - Le Menteur (1643)</div>
-    </div>
-    
-    <div class="section">
-        <h2>Introduction</h2>
-        <p>Pierre Corneille, grand dramaturge français du XVIIe siècle, est principalement connu pour ses tragédies comme <em>Le Cid</em> ou <em>Horace</em>. Cependant, avec <em>Le Menteur</em> (1643), il s'illustre dans le genre de la comédie. Cette pièce met en scène Dorante, un jeune homme qui ment constamment et s'invente une vie pour séduire et impressionner.</p>
-        
-        <p>L'extrait étudié se situe à l'acte III, scène 3, un moment charnière de la pièce où Géronte, le père de Dorante, découvre les mensonges de son fils. La confrontation entre le père et le fils constitue une scène de reconnaissance, typique du théâtre classique, où les valeurs morales s'opposent.</p>
-        
-        <div class="problematique">
-            <h3>Problématique</h3>
-            <p>Comment Corneille transforme-t-il cette confrontation père-fils en une véritable réflexion sur l'honneur et la noblesse authentique ?</p>
-        </div>
-        
-        <p>Nous verrons que le texte progresse selon trois mouvements : d'abord une interrogation sur la nature de la noblesse (v.1501-1516), puis un réquisitoire contre le mensonge (v.1517-1538), et enfin l'expression de la déception paternelle (v.1539-1555).</p>
-    </div>
-    
-    <div class="section">
-        <h2>Premier mouvement : La définition de la vraie noblesse (v.1501-1516)</h2>
-        
-        <h3>La question fondamentale</h3>
-        <div class="citation">"Êtes-vous gentilhomme ?"</div>
-        
-        <p>Cette interrogation, qui pourrait sembler rhétorique, acquiert une dimension profonde car elle questionne non pas le statut social mais la valeur morale de Dorante. La réaction de celui-ci, <span class="citation">"Ah ! rencontre fâcheuse !"</span>, révèle immédiatement son malaise face à cette confrontation inattendue.</p>
-        
-        <h3>Deux conceptions opposées de la noblesse</h3>
-        <div class="citation">"Étant sorti de vous" et "Avec toute la France aisément je le croi"</div>
-        
-        <p>Dorante se retranche derrière une vision <span class="concept-cle">héréditaire</span> de la noblesse. Cet <span class="procede">argument d'autorité</span> montre sa vision superficielle de l'honneur, réduit à un titre transmis par le sang.</p>
-        
-        <h3>La conception morale de Géronte</h3>
-        <div class="citation">"Et ne savez-vous point [...] D'où ce titre d'honneur a tiré sa naissance, Et que la vertu seule a mis en ce haut rang" (v.1505-1507)</div>
-        
-        <p>Géronte développe une conception <span class="concept-cle">morale de la noblesse</span> à travers un <span class="procede">questionnement rhétorique</span>. L'emploi du terme "vertu" s'inscrit dans une réflexion classique sur le mérite personnel au XVIIe siècle.</p>
-        
-        <h3>Le principe de réversibilité</h3>
-        <div class="citation">"Où le sang a manqué, si la vertu l'acquiert, / Où le sang l'a donné, le vice aussi le perd" (v.1511-1512)</div>
-        
-        <p>La <span class="procede">construction symétrique</span> de ces vers illustre parfaitement le principe de réversibilité de la noblesse. Le <span class="procede">chiasme</span> "Ce qui naît d'un moyen périt par son contraire" renforce cette idée philosophique.</p>
-        
-        <h3>Le verdict</h3>
-        <div class="citation">"Tu n'es plus gentilhomme, étant sorti de moi" (v.1516)</div>
-        
-        <p>Ce vers paradoxal, reprenant ironiquement l'argument initial de Dorante, marque la <span class="concept-cle">déchéance morale</span> du fils.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Deuxième mouvement : Le réquisitoire contre le mensonge (v.1517-1538)</h2>
-        
-        <h3>L'autorité paternelle</h3>
-        <div class="citation">"Moi ?" / "Laisse-moi parler"</div>
-        
-        <p>L'indignation de Dorante est immédiatement balayée par l'<span class="procede">injonction paternelle</span>, qui marque le début d'un véritable réquisitoire.</p>
-        
-        <h3>La gravité du mensonge</h3>
-        <div class="citation">"Est-il vice plus bas [...] ?", "Est-il quelque faiblesse [...] ?" (v.1521-1523)</div>
-        
-        <p>La tirade de Géronte se construit à travers une <span class="procede">accumulation de questions oratoires</span>. Ces interrogations rhétoriques renforcent la gravité du mensonge en le plaçant au sommet des vices incompatibles avec la noblesse.</p>
-        
-        <h3>Le lexique du déshonneur</h3>
-        <div class="citation">"souille honteusement", "tache plus noire", "infamie", "honteux outrage"</div>
-        
-        <p>Cette <span class="procede">isotopie</span> souligne la dimension sociale du mensonge, qui n'est pas qu'une faute morale mais une atteinte à l'<span class="concept-cle">honneur familial</span>.</p>
-        
-        <h3>Le code de l'honneur aristocratique</h3>
-        <div class="citation">"démenti" et nécessité de "laver l'affront" "dans le sang" (v.1525-1527)</div>
-        
-        <p>Ces termes font référence au <span class="concept-cle">code de l'honneur aristocratique</span> et à la pratique du duel, encore très présente dans les mentalités malgré son interdiction par Louis XIII.</p>
-        
-        <h3>L'élément comique</h3>
-        <div class="citation">"Dites que le sommeil vous l'a fait oublier" (v.1532)</div>
-        
-        <p>L'intervention du valet Cliton, qui tente de souffler des excuses à son maître, apporte une <span class="procede">dimension comique</span> à cette scène grave. Ce contrepoint souligne l'absurdité de la situation et l'impasse dans laquelle se trouve Dorante.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Troisième mouvement : La déception paternelle (v.1539-1555)</h2>
-        
-        <h3>L'humiliation du père</h3>
-        <div class="citation">"De quel front cependant faut-il que je confesse / Que ton effronterie a surpris ma vieillesse" (v.1538-1539)</div>
-        
-        <p>L'<span class="procede">opposition</span> entre la "vieillesse" du père et la jeunesse implicite du fils renforce le caractère sacrilège de cette tromperie.</p>
-        
-        <h3>La victime sociale</h3>
-        <div class="citation">"Tu me fais donc servir de fable et de risée" (v.1541)</div>
-        
-        <p>L'image du père ridiculisé socialement renforce la <span class="procede">dimension pathétique</span> de ce passage. Cette humiliation est d'autant plus injustifiée que Géronte souligne sa bienveillance passée.</p>
-        
-        <h3>La bienveillance paternelle</h3>
-        <div class="citation">"te portais-je à la gorge un poignard ?", "Voyais-tu violence ou courroux de ma part ?" (v.1543-1544)</div>
-        
-        <p>Cette <span class="procede">série de questions</span> souligne le caractère libéral et compréhensif de Géronte, contrastant avec la figure traditionnelle du père tyrannique des comédies.</p>
-        
-        <h3>L'indulgence bafouée</h3>
-        <div class="citation">"l'indulgence, au dernier point venue" (v.1549)</div>
-        
-        <p>L'évocation du consentement paternel à "l'hymen d'une inconnue" souligne le caractère libéral et compréhensif de Géronte, <span class="concept-cle">à l'opposé du père tyrannique</span> traditionnel des comédies.</p>
-        
-        <h3>La rupture finale</h3>
-        <div class="citation">"tu n'as eu pour moi respect, amour, ni crainte" (v.1554), "Va, je te désavoue" (v.1555)</div>
-        
-        <p>L'expression d'une <span class="procede">triple déception</span>, suivie de la répudiation finale, marque la rupture symbolique du lien filial. Cette formule lapidaire, placée en conclusion, a une force dramatique considérable.</p>
-    </div>
-    
-    <div class="aide-memoire">
-        <h2>Aide-mémoire : points essentiels</h2>
-        <ol>
-            <li><strong>Structure du texte</strong> :
-                <ul>
-                    <li>Premier mouvement : définition de la vraie noblesse (v.1501-1516)</li>
-                    <li>Deuxième mouvement : réquisitoire contre le mensonge (v.1517-1538)</li>
-                    <li>Troisième mouvement : expression de la déception paternelle (v.1539-1555)</li>
-                </ul>
-            </li>
-            <li><strong>Procédés stylistiques majeurs</strong> :
-                <ul>
-                    <li>Constructions symétriques et chiasmes</li>
-                </ul>
-            </li>
-        </ol>
-    </div>
-</article>
-
-<article id="Corneille, Le Menteur3" class="article">
-    <div class="breadcrumb">
-        <a href="#table-of-contents">Sommaire</a> > 
-        <a href="#theatre">Théâtre</a> > 
-        Le Menteur Corneille (Acte III, Scène 5)
-    </div>
-
-    <div id="doc1" class="document">
-        <div class="title-box">
-            <span class="category-badge theatre">Théâtre</span>
-            <h2>Explication linéaire : Le Menteur, Acte III, scène 5 (vers 943-971)</h2>
-            <div class="author-info">Pierre Corneille (1606-1684) - Le Menteur (1643)</div>
-        </div>
-        
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>Pierre Corneille (1606-1684), après s'être illustré dans la tragédie avec des œuvres comme Le Cid (1637) ou Horace (1640), s'essaie à la comédie avec Le Menteur en 1643. Cette pièce met en scène Dorante, un jeune homme qui ment constamment par intérêt ou par plaisir, créant ainsi une succession de quiproquos et de situations comiques.</p>
-            
-            <p>L'extrait étudié se situe à l'acte III, scène 5, un moment crucial où Dorante se trouve confronté à Lucrèce et Clarice, les deux jeunes femmes entre lesquelles il hésite et à qui il a menti. La particularité de cette scène repose sur un quiproquo : Dorante croit s'adresser à Lucrèce alors qu'il parle en réalité à Clarice, ce qui ajoute une dimension supplémentaire à la comédie des mensonges.</p>
-            
-            <div class="problematique">
-                <h3>Problématique</h3>
-                <p>Comment Corneille utilise-t-il cette scène de confrontation pour développer une comédie du mensonge où la vérité se révèle malgré le menteur ?</p>
-            </div>
-            
-            <p>Nous verrons que le texte progresse en trois mouvements : d'abord une entrée en matière marquée par la confusion identitaire (v.943-948), puis les flatteries mensongères de Dorante (v.949-960), et enfin la confrontation directe au mensonge (v.961-971).</p>
-        </div>
-        
-        <div class="section">
-            <h2>Premier mouvement : La confusion des identités (v.943-948)</h2>
-            
-            <h3>L'ouverture de la scène</h3>
-            <div class="citation">"Êtes-vous là, Dorante ?"</div>
-            
-            <p>La scène s'ouvre par une question simple de Clarice qui établit immédiatement le contexte d'une rencontre nocturne où l'obscurité favorise la confusion. Le "oui" catégorique de Dorante contraste avec l'erreur qu'il commet, croyant s'adresser à Lucrèce alors qu'il répond à Clarice. Cette confusion initiale installe le ressort comique central de la scène : le <span class="concept-cle">quiproquo</span>.</p>
-            
-            <h3>La déclaration hyperbolique</h3>
-            <div class="citation">"Qui veux vivre et mourir sous votre seule foi"</div>
-            
-            <p>La réponse emphatique de Dorante utilise un <span class="procede">lexique hyperbolique</span> typique du discours amoureux baroque. L'<span class="procede">antithèse</span> "vivre/mourir" et l'adjectif "seule" soulignent l'exclusivité de son engagement, en contradiction totale avec son comportement volage précédent.</p>
-            
-            <h3>Le jeu des apartés</h3>
-            <div class="citation">"Sa fleurette pour toi prend encor même style"</div>
-            
-            <p>Les <span class="procede">apartés</span> qui suivent entre Lucrèce et Clarice puis entre Cliton et Dorante créent un effet de dédoublement du dialogue. Ces échanges parallèles, caractéristiques du théâtre classique, permettent au spectateur d'être complice de la situation et de mesurer l'ampleur du quiproquo.</p>
-            
-            <h3>L'inquiétude révélatrice</h3>
-            <div class="citation">"Mais m'aurait-il déjà reconnue à la voix ?"</div>
-            
-            <p>L'inquiétude de Clarice ajoute à la complexité de la situation : chaque personnage doute et interprète les paroles de l'autre à travers le prisme de ses propres croyances erronées. Ce début de scène établit ainsi un jeu de miroirs déformants où la vérité semble impossible à atteindre.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Deuxième mouvement : Les flatteries mensongères de Dorante (v.949-960)</h2>
-            
-            <h3>Le discours amoureux hyperbolique</h3>
-            <div class="citation">"effacer de ma vie / Les jours que j'ai vécu sans vous avoir servie"</div>
-            
-            <p>Le discours amoureux de Dorante se déploie en une tirade emphatique où les <span class="procede">hyperboles</span> s'enchaînent : "un sort rigoureux", "une longue mort". Cette accumulation de métaphores hyperboliques relève d'une rhétorique amoureuse conventionnelle, qui trahit le caractère peu sincère de ses propos.</p>
-            
-            <h3>La structure anaphorique</h3>
-            <div class="citation">"pour vivre il faut être esclave de Lucrèce"</div>
-            
-            <p>L'<span class="procede">anaphore</span> de "vivre" structure ce passage, culminant dans la paradoxale déclaration sur l'esclavage amoureux. Cette formulation provoque un nouvel aparté qui souligne la duplicité du personnage capable de tenir le même discours amoureux à différentes femmes.</p>
-            
-            <h3>L'association révélatrice</h3>
-            <div class="citation">"Il aime à promener sa fourbe et son amour"</div>
-            
-            <p>La réponse de Lucrèce est particulièrement éclairante : l'association de "fourbe" et "amour" dans une même proposition révèle la fusion entre mensonge et sentiment chez Dorante, pour qui séduire et tromper sont indissociables.</p>
-            
-            <h3>Le pathos exagéré</h3>
-            <div class="citation">"À vos commandements j'apporte donc ma vie, / Trop heureux si pour vous elle m'était ravie !"</div>
-            
-            <p>Dorante poursuit son discours avec une nouvelle <span class="procede">hyperbole</span>. Le conditionnel "m'était ravie" et l'<span class="procede">exclamation</span> traduisent un pathos exagéré qui confine au ridicule. La formule "Disposez-en, Madame" rappelle le <span class="concept-cle">lexique de la galanterie précieuse</span> et de la soumission courtoise, mais sonne creux dans la bouche de ce menteur invétéré.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Troisième mouvement : La confrontation au mensonge (v.961-971)</h2>
-            
-            <h3>Le piège rhétorique</h3>
-            <div class="citation">"Je vous voulais tantôt proposer quelque chose ; / Mais il n'est plus besoin que je vous la propose, / Car elle est impossible."</div>
-            
-            <p>Le ton change avec l'intervention de Clarice qui, de façon détournée, confronte Dorante à son mensonge. Cette réplique amorce un <span class="concept-cle">piège rhétorique</span> dans lequel Dorante va tomber tête baissée.</p>
-            
-            <h3>L'exagération révélatrice</h3>
-            <div class="citation">"Impossible ? Ah ! pour vous / Je pourrai tout, Madame, en tous lieux, contre tous"</div>
-            
-            <p>La réaction immédiate de Dorante illustre parfaitement sa propension à l'exagération et à l'engagement inconsidéré. L'<span class="procede">hyperbole</span> est encore renforcée par la triple répétition "tout", "tous lieux", "contre tous", créant un effet de <span class="procede">gradation</span> qui traduit la surenchère constante du personnage.</p>
-            
-            <h3>Le coup de théâtre</h3>
-            <div class="citation">"Jusqu'à vous marier, quand je sais que vous l'êtes ?"</div>
-            
-            <p>Le coup de théâtre intervient lorsque Clarice dévoile sa connaissance du mariage supposé de Dorante. Cette question directe place Dorante face à son mensonge antérieur (il avait prétendu être marié pour échapper à un engagement).</p>
-            
-            <h3>Le nouveau mensonge</h3>
-            <div class="citation">"Moi, marié ! ce sont pièces qu'on vous a faites ; / Quiconque vous l'a dit s'est voulu divertir."</div>
-            
-            <p>Sa réponse est significative de son caractère : au lieu de reconnaître son mensonge, il en forge un nouveau en niant le premier, illustrant parfaitement la <span class="concept-cle">spirale du mensonge</span>.</p>
-            
-            <h3>Le commentaire méta-dramatique</h3>
-            <div class="citation">"Est-il un plus grand fourbe ?" / "Il ne sait que mentir"</div>
-            
-            <p>Les apartés qui suivent entre Clarice et Lucrèce offrent un <span class="procede">commentaire méta-dramatique</span> sur la nature même du personnage, résumant en quelques mots le principe fondamental qui gouverne toutes ses actions.</p>
-            
-            <h3>Le paroxysme de la mauvaise foi</h3>
-            <div class="citation">"Que le foudre à vos yeux m'écrase, si je mens !"</div>
-            
-            <p>La scène culmine avec le serment solennel de Dorante. Cette invocation grandiloquente du châtiment divin pour attester un nouveau mensonge représente le paroxysme de la mauvaise foi. L'<span class="concept-cle">ironie dramatique</span> est à son comble : le spectateur sait que Dorante ment en jurant qu'il ne ment pas.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Conclusion</h2>
-            <p>Cette scène du Menteur illustre parfaitement le génie comique de Corneille, qui exploite le quiproquo et le mensonge pour créer une situation où la vérité se révèle malgré les efforts du menteur pour la dissimuler. Le personnage de Dorante incarne le menteur par excellence, capable de s'enfermer dans une spirale de mensonges sans issue.</p>
-            
-            <p>Par-delà la dimension comique, cette scène soulève des questions morales sur le rapport à la vérité et au mensonge dans les relations sociales et amoureuses. Corneille met en scène une critique subtile de l'hypocrisie mondaine et des conventions du discours amoureux, souvent déconnectées de toute sincérité véritable.</p>
-            
-            <p>Cette comédie annonce par certains aspects le théâtre de Molière, notamment dans sa peinture des caractères (le menteur préfigure les grands personnages obsessionnels comme Harpagon ou Tartuffe) et dans sa critique des mœurs sociales. Elle témoigne de la richesse du théâtre classique français qui, même dans le registre comique, parvient à conjuguer divertissement et réflexion morale.</p>
-        </div>
-        
-        <div class="aide-memoire">
-            <h2>Aide-mémoire : points essentiels</h2>
-            <ol>
-                <li><strong>Structure du texte</strong> :
-                    <ul>
-                        <li>Premier mouvement : confusion des identités (v.943-948)</li>
-                        <li>Deuxième mouvement : flatteries mensongères de Dorante (v.949-960)</li>
-                        <li>Troisième mouvement : confrontation directe au mensonge (v.961-971)</li>
-                    </ul>
-                </li>
-                <li><strong>Procédés stylistiques majeurs</strong> :
-                    <ul>
-                        <li>Quiproquo et ironie dramatique</li>
-                        <li>Hyperboles et métaphores amoureuses</li>
-                        <li>Apartés et commentaires méta-dramatiques</li>
-                    </ul>
-                </li>
-                <li><strong>Thèmes principaux</strong> :
-                    <ul>
-                        <li>Le mensonge et ses conséquences</li>
-                        <li>L'hypocrisie du discours amoureux</li>
-                        <li>La dénonciation des conventions sociales</li>
-                    </ul>
-                </li>
-            </ol>
-        </div>
-    </div>
-
-</article>
-
-<article id="BEAUMARCHAIS  Le Mariage de Figaro" class="article">
-        <div class="breadcrumb">
-            <a href="#table-of-contents">Sommaire</a> > 
-            <a href="#theatre">Théâtre</a> > 
-            Le Mariage de Figaro (Acte V, Scène 7)
-        </div>
-
-    <!-- Document 2: Le Mariage de Figaro, Acte V, scène 7 -->
-        <div class="title-box">
-            <span class="category-badge theatre">Théâtre</span>
-            <h2>Explication linéaire : Le Mariage de Figaro, Acte V, scène 7</h2>
-            <div class="author-info">Pierre-Augustin Caron de Beaumarchais (1732-1799) - Le Mariage de Figaro (1784)</div>
-        </div>
-        
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>Pierre-Augustin Caron de Beaumarchais, dramaturge français du XVIIIe siècle et figure des Lumières, publie "Le Mariage de Figaro" en 1784, pièce qui fut d'abord censurée avant de connaître un immense succès public. Cette comédie, suite du "Barbier de Séville" (1775), s'inscrit dans la trilogie de Figaro et représente l'une des œuvres emblématiques du théâtre prérévolutionnaire.</p>
-            
-            <p>L'extrait étudié se situe à l'acte V, scène 7, moment crucial du dénouement. Il s'agit d'une scène nocturne dans le jardin où le Comte Almaviva fait la cour à celle qu'il croit être Suzanne (la femme de chambre) mais qui est en réalité sa propre épouse, la Comtesse, déguisée. Cette méprise, fruit d'une machination orchestrée par Figaro et les deux femmes, permet à la Comtesse de confondre son mari infidèle tout en recueillant ses aveux.</p>
-            
-            <div class="problematique">
-                <h3>Problématique</h3>
-                <p>Comment cette scène de reconnaissance révèle-t-elle la conception du mariage et des relations homme-femme à la fin du XVIIIe siècle, tout en développant une réflexion critique sur la condition féminine ?</p>
-            </div>
-            
-            <p>La scène s'organise en trois mouvements : d'abord la séduction physique du Comte envers celle qu'il croit être Suzanne, puis sa théorie sur l'amour et le mariage, et enfin sa vision des rôles genrés dans la relation amoureuse.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Premier mouvement : La séduction physique et la comparaison entre épouse et servante</h2>
-            
-            <h3>La didascalie initiale</h3>
-            <div class="citation">"Le Comte prend la main de sa femme."</div>
-            
-            <p>Ce geste de séduction est chargé d'<span class="concept-cle">ironie dramatique</span> puisque le Comte ignore qu'il s'agit de son épouse. L'ironie est d'autant plus forte que ce mouvement physique précède immédiatement la comparaison désobligeante.</p>
-            
-            <h3>La comparaison désobligeante</h3>
-            <div class="citation">"Mais quelle peau fine et douce, et qu'il s'en faut que la comtesse ait la main aussi belle !"</div>
-            
-            <p>L'<span class="procede">exclamative</span> traduit l'enthousiasme sensuel du Comte, tandis que la <span class="procede">comparaison négative</span> envers son épouse révèle son infidélité d'intention et son inconstance.</p>
-            
-            <h3>La réaction de la Comtesse</h3>
-            <div class="citation">"Oh ! la prévention !"</div>
-            
-            <p>Cet <span class="procede">aparté</span> crée une connivence avec le spectateur. Cette brève exclamation traduit à la fois sa surprise et son agacement face aux préjugés de son mari qui, aveuglé par son désir adultère, ne reconnaît pas la main de sa propre épouse.</p>
-            
-            <h3>Éloge physique et sensuel</h3>
-            <div class="citation">"A-t-elle ce bras ferme et rondelet ? ces jolis doigts pleins de grâce et d'espièglerie ?"</div>
-            
-            <p>La <span class="procede">question rhétorique</span> chargée de détails sensuels et le <span class="procede">lexique valorisant</span> ("jolis", "grâce") renforcent l'éloge physique. L'adjectif "espièglerie" attribué aux doigts utilise une <span class="procede">métonymie</span> qui transfère une qualité morale à une partie physique.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Deuxième mouvement : La théorie du Comte sur l'amour et le mariage</h2>
-            
-            <h3>La métaphore littéraire</h3>
-            <div class="citation">"L'amour... n'est que le roman du cœur ; c'est le plaisir qui en est l'histoire"</div>
-            
-            <p>Cette <span class="procede">métaphore littéraire</span> oppose deux genres : le roman, associé à la fiction et à l'idéalisation, et l'histoire, supposée plus réelle et concrète. Ce parallèle révèle sa vision <span class="concept-cle">matérialiste</span> qui privilégie le plaisir physique sur le sentiment.</p>
-            
-            <h3>L'aveu d'inconstance</h3>
-            <div class="citation">"Je l'aime beaucoup ; mais trois ans d'union rendent l'hymen si respectable !"</div>
-            
-            <p>L'<span class="procede">adversative "mais"</span> et l'<span class="procede">adverbe intensif "si"</span> créent une <span class="procede">antithèse ironique</span> entre l'amour conjugal et le respect, suggérant que la respectabilité du mariage tue le désir.</p>
-            
-            <h3>La théorie du désir masculin</h3>
-            <div class="citation">"moins d'uniformité peut-être, plus de piquant dans les manières, un je ne sais quoi qui fait le charme ; quelquefois un refus, que sais-je ?"</div>
-            
-            <p>L'<span class="procede">accumulation de termes vagues</span> ("je ne sais quoi", "que sais-je ?") traduit la difficulté à définir précisément l'objet du désir masculin, tandis que l'opposition entre "uniformité" et "piquant" suggère que la monotonie conjugale est l'ennemie du désir.</p>
-            
-            <h3>La critique de la constance féminine</h3>
-            <div class="citation">"Nos femmes croient tout accomplir en nous aimant"</div>
-            
-            <p>La <span class="procede">répétition ternaire</span> "elles nous aiment, nous aiment (quand elles nous aiment !)" avec sa parenthèse dubitative crée un effet comique qui traduit son scepticisme. L'<span class="procede">accumulation d'adverbes et d'adjectifs</span> mime ironiquement cette constance féminine qu'il considère comme excessive.</p>
-            
-            <h3>L'antithèse finale</h3>
-            <div class="citation">"on est tout surpris un beau soir de trouver la satiété où l'on recherchait le bonheur."</div>
-            
-            <p>L'<span class="procede">antithèse</span> entre "satiété" et "bonheur" résume sa conception <span class="concept-cle">hédoniste</span> qui valorise la quête perpétuelle de plaisir au détriment de la fidélité.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Troisième mouvement : La théorie des rôles genrés dans la relation amoureuse</h2>
-            
-            <h3>L'analyse psychologique</h3>
-            <div class="citation">"si nous poursuivons ailleurs ce plaisir qui nous fuit chez elles, c'est qu'elles n'étudient pas assez l'art de soutenir notre goût"</div>
-            
-            <p>L'expression "ce plaisir qui nous fuit" <span class="procede">personnifie</span> le désir comme une entité instable, tandis que le verbe "étudient" suggère que la séduction féminine devrait être un travail conscient.</p>
-            
-            <h3>La métaphore du renouvellement</h3>
-            <div class="citation">"se renouveler à l'amour" et "ranimer [...] le charme de leur possession par celui de la variété"</div>
-            
-            <p>Ces expressions révèlent sa conception <span class="concept-cle">utilitaire</span> où la femme doit constamment se réinventer pour maintenir le désir masculin.</p>
-            
-            <h3>L'indignation de la Comtesse</h3>
-            <div class="citation">"Donc elles doivent tout ?..."</div>
-            
-            <p>L'<span class="procede">interruption et les points de suspension</span> traduisent son indignation face à cette théorie inégalitaire des rôles.</p>
-            
-            <h3>Le déterminisme naturel</h3>
-            <div class="citation">"Changerons-nous la marche de la nature ?"</div>
-            
-            <p>Cette <span class="procede">question rhétorique</span> invoque un <span class="concept-cle">déterminisme naturel</span> pour justifier l'inégalité des rôles entre hommes et femmes.</p>
-            
-            <h3>La définition des rôles sexués</h3>
-            <div class="citation">"Notre tâche, à nous, fut de les obtenir, la leur... Est de nous retenir"</div>
-            
-            <p>Cette formulation <span class="procede">lapidaire</span> résume sa conception traditionnelle des rôles sexués et révèle une vision profondément inégalitaire des relations homme-femme.</p>
-            
-            <h3>Le jeu des apartés</h3>
-            <div class="citation">"Ce ne sera pas moi", "Ni moi", "Ni moi"</div>
-            
-            <p>Ce <span class="procede">effet choral comique</span> où chaque personnage affirme sa volonté de ne pas oublier cette "leçon" crée une complicité contre le Comte, préfigurant sa défaite finale.</p>
-        </div>
-        
-        <div class="section">
-            <h2>Conclusion</h2>
-            <p>Cette scène du "Mariage de Figaro" révèle toute la modernité et l'audace de Beaumarchais qui, à travers ce quiproquo savamment orchestré, propose une critique acerbe des conceptions matrimoniales aristocratiques du XVIIIe siècle. Le dramaturge dénonce l'hypocrisie du Comte qui théorise sa propre infidélité en la présentant comme naturelle, tout en rejetant la responsabilité sur les épouses.</p>
-            
-            <p>Le génie de Beaumarchais réside dans sa capacité à transformer cette scène potentiellement scandaleuse en un moment de comédie brillante qui, tout en faisant rire, porte une réflexion sociale avancée sur la condition féminine et l'institution du mariage. Le dispositif dramatique du déguisement permet à la Comtesse d'accéder à une vérité qu'elle n'aurait jamais pu entendre autrement, illustrant ainsi la nécessité pour les femmes de ruser pour obtenir justice dans une société patriarcale.</p>
-            
-            <p>Cette scène préfigure les questionnements sur les relations hommes-femmes qui traverseront la littérature des siècles suivants, de Laclos à Flaubert en passant par Maupassant, et annonce les revendications d'égalité qui émergeront progressivement dans le discours féministe.</p>
-        </div>
-        
-        <div class="aide-memoire">
-            <h2>Aide-mémoire : points essentiels</h2>
-            <ol>
-                <li><strong>Structure du texte</strong> :
-                    <ul>
-                        <li>Premier mouvement : séduction physique et comparaison entre épouse et servante</li>
-                        <li>Deuxième mouvement : théorie du Comte sur l'amour et le mariage</li>
-                        <li>Troisième mouvement : vision des rôles genrés dans la relation amoureuse</li>
-                    </ul>
-                </li>
-                <li><strong>Procédés stylistiques majeurs</strong> :
-                    <ul>
-                        <li>Ironie dramatique (quiproquo)</li>
-                        <li>Métaphores (littéraire, renouvellement)</li>
-                        <li>Apartés et effets choraux</li>
-                    </ul>
-                </li>
-                <li><strong>Thèmes principaux</strong> :
-                    <ul>
-                        <li>Critique de l'institution du mariage aristocratique</li>
-                        <li>Inégalité des rôles homme-femme</li>
-                        <li>Ruse féminine contre pouvoir masculin</li>
-                    </ul>
-                </li>
-            </ol>
-        </div>
-    </div>
-</article>
-</main>
-
-<footer>
-    <div class="container">
-        <p>© 2025 - Recueil d'analyses littéraires - </p>
-    </div>
-</footer>
-<script>
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        // Sélectionner tous les en-têtes d'accordéon
-        const accordionHeaders = document.querySelectorAll('.category-section h4');
-        
-        // Ajouter des écouteurs d'événements à chaque en-tête
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', function() {
-                // Basculer la classe active sur l'en-tête
-                this.classList.toggle('active');
-                
-                // Basculer la classe active sur la section parente
-                this.parentElement.classList.toggle('active');
-            });
-        });
-        
-        // Fonctionnalité pour les liens d'articles
-        const articleLinks = document.querySelectorAll('.article-link');
-        const articles = document.querySelectorAll('.article');
-        
-        articleLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Cacher tous les articles
-                articles.forEach(article => {
-                    article.classList.remove('active');
-                });
-                
-                // Afficher l'article ciblé
-                const targetId = this.getAttribute('href').substring(1);
-                document.getElementById(targetId).classList.add('active');
-                
-                // Faire défiler jusqu'à l'article
-                document.getElementById(targetId).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    });
-</script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            if (scrollTop > lastScrollTop) {
-                // Vers le bas
-                header.classList.add('hidden');
-            } else {
-                // Vers le haut
-                header.classList.remove('hidden');
-            }
-
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Pour éviter les valeurs négatives
-        });
-    });
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const categorySections = document.querySelectorAll('.category-section');
-        
-        categorySections.forEach(section => {
-            const title = section.querySelector('h4');
-            const list = section.querySelector('ul');
-
-            // Initially collapse all sections
-            list.style.maxHeight = '0';
-
-            // Add click event listener to toggle sections
-            title.addEventListener('click', function() {
-                const isOpen = list.style.maxHeight !== '0px';
-                
-                // Toggle the active class on the section
-                section.classList.toggle('active', !isOpen);
-
-                // Update the maxHeight based on the toggle state
-                if (isOpen) {
-                    list.style.maxHeight = '0';
-                } else {
-                    list.style.maxHeight = list.scrollHeight + 'px';
-                }
-
-                // Modify the arrow symbol
-                title.classList.toggle('active', list.style.maxHeight !== '0px');
-            });
-        });
-    });
-</script>
-
-</body>
-</html>
